@@ -189,6 +189,7 @@ function shuffleArray(array) {
 export function startGame(joinCode) {
   console.log("starting game...");
   const game = liveGames.get(joinCode);
+  console.log(game);
   game.started = true;
   sendQuestions(game.questions[calculateQuestionNumber(joinCode)], joinCode, game.currentQuestion, game.currentRound, game.roundTime);
   game.intervalID = setInterval(() => {
