@@ -146,6 +146,8 @@ export function joinGame(socket, gameOptions) {
  * Sends a question to all clients in game
  */
 function sendQuestions(question, joinCode, questionNumber, roundNumber, roundTime) {
+  console.log("Sending question")
+  console.log(question);
   const game = liveGames.get(joinCode);
   if (game != undefined) {
     const players = game.players;
@@ -185,6 +187,7 @@ function shuffleArray(array) {
  * Starts gameloop
  */
 export function startGame(joinCode) {
+  console.log("starting game...");
   const game = liveGames.get(joinCode);
   game.started = true;
   sendQuestions(game.questions[calculateQuestionNumber(joinCode)], joinCode, game.currentQuestion, game.currentRound, game.roundTime);
