@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizWizzyZilla Trivia Tournament</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#e0eff4">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#e0eff4">
+    <meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#e0eff4">
+</head>
+
+<body class="container">
+
+    <header>
+        <img src="images/logo-with-text.svg" alt="logo">
+        <h1 id="name-heading"> Welcome to the <br /> QuizWizzyZilla Trivia Tournament</h1>
+    </header>
+
+    <main>
+        <p>Choose a provider to sign in with</p>
+        <hr class="divider" />
+        <button class="single-signin" id="start-btn" data-provider="google"><img
+                src="images/btn_google_signin_light_normal_web@2x.png" width="300"></button>
+        <!-- <button class="single-signin" id="start-btn" data-provider="facebook"><img src="images/facebook.png" width="300"></button> -->
+        <br />
+        <p id="error-message"></p>
+    </main>
+
+    <script src="js/index.js" type="module"></script>
+</body>
+
+</html>
