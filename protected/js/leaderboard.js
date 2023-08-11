@@ -55,13 +55,19 @@ async function fetchGame() {
     const urlParams = new URLSearchParams(window.location.search);
     const myParam = urlParams.get('gameId');
 
-    let response = await fetch(`/game/leaderboard?gameId=${myParam}`);
-    let data = await response.json();
-
-    if (JSON.parse(data.leaderboard).length) {
-        loadLeaderBoard(JSON.parse(data.leaderboard))
-        clearInterval(fetchGameInterval);
+    let response;
+    let data;
+    while (true) {
+        response = await fetch(`/game/leaderboard?gameId=${myParam}`);
+        if (response.status === 200) {
+            data = await response.json();
+            break;
+        }
+        // Wait for 1 second before retrying
+        await new Promise(resolve => setTimeout(resolve, 1000));
     }
+    
+    loadLeaderBoard(JSON.parse(data.leaderboard))
 }
 
-const fetchGameInterval = setInterval(fetchGame, 1000);
+fetchGame();
