@@ -1,4 +1,3 @@
-import passport from "passport";
 import { getGameLeaderboardRequest } from "../db/requests.js";
 
 import path from "path";
