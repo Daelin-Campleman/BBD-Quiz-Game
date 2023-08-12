@@ -84,7 +84,7 @@ export function saveGameLeaderBoardRequest(gameId, players) {
     return execSQLRequest(sql, params);
 }
 
-export function savePlayerDetailsReques(playerDetails) {
+export function savePlayerContactDetailsRequest(playerDetails) {
     return Promise.resolve()
 }
 
