@@ -84,6 +84,10 @@ export function saveGameLeaderBoardRequest(gameId, players) {
     return execSQLRequest(sql, params);
 }
 
+export function savePlayerDetailsReques(playerDetails) {
+    return Promise.resolve()
+}
+
 export function selectFederatedCredentialsByIdRequest(provider, subject) {
 
     const sql = `
