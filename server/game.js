@@ -1,6 +1,16 @@
 import { getQuestions } from "./questions.js";
 import { createGameRequest, saveGameLeaderBoardRequest } from "../db/requests.js";
 
+function PlayerDetails(name, surname, degree, year, poppi, email, phone) {
+  this.name = name;
+  this.surname = surname;
+  this.degree = degree;
+  this.year = year;
+  this.poppi = poppi;
+  this.email = email;
+  this.phone = phone;
+}
+
 function Player(ws, name, id, isHost) {
   this.ws = ws;
   this.name = name;
@@ -12,6 +22,8 @@ function Player(ws, name, id, isHost) {
 }
 
 const liveGames = new Map();
+
+const plaeyrDetailsStore = [];
 
 /**
  * 
@@ -119,6 +131,7 @@ export function joinGame(socket, gameOptions) {
         success: false
       }));
     } else {
+      plaeyrDetailsStore = [...plaeyrDetailsStore, new PlayerDetails(user['name'], user['surname'], user['degree'], user['year'], user['poppi'], user['email'], user['phone'])]
       game.players.push(new Player(socket, user['name'], user['id'], false));
       game.players[0].ws.send(JSON.stringify({
         requestType: "JOIN",
