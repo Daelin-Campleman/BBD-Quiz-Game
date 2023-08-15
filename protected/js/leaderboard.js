@@ -64,4 +64,4 @@ async function fetchGame() {
     }
 }
 
-const fetchGameInterval = setInterval(fetchGame, 1000);
+const fetchGameInterval = setInterval(fetchGame, 2000);

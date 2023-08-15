@@ -92,7 +92,7 @@ function handleJoin(msg) {
 
 function handleQuestion(msg) {
     document.getElementById("join-code-header").textContent = "";
-    let question = msg['questionText']['text'];
+    let question = msg['questionText'];
     let answers = msg['questionOptions'];
     let questionNumber = msg['questionNumber'];
     let roundNumber = msg['roundNumber'];
@@ -115,12 +115,19 @@ function handleQuestion(msg) {
     questionElem.textContent = question;
 
     for (let i = 0; i < 4; i++) {
-        let answer = answers[i];
-        let answerElem = document.getElementById("answer-" + (i + 1));
-        answerElem.textContent = answer;
-        answerElem.classList.remove("disabled");
-        answerElem.classList.remove("selected");
-        answerElem.blur();
+        if(answers[i] == undefined){
+            let answerElem = document.getElementById("answer-" + (i + 1));
+            answerElem.textContent = "";
+            answerElem.classList.add("hidden");
+        } else {
+            let answer = answers[i];
+            let answerElem = document.getElementById("answer-" + (i + 1));
+            answerElem.textContent = answer;
+            answerElem.classList.remove("disabled");
+            answerElem.classList.remove("selected");
+            answerElem.classList.remove("hidden");
+            answerElem.blur();
+        }
     }
 
     startTimer(questionTime);
