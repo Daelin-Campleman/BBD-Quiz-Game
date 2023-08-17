@@ -133,3 +133,6 @@ dist
 #SQLLight
 
 var/
+
+#macOS Indexing
+.DS_Store
