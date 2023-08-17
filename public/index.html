@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuizWizzyZilla Trivia Tournament</title>
+    <title>BBD Quiz Game</title>
     <link rel="stylesheet" href="css/style.css">
 
 
@@ -24,7 +24,7 @@
 
     <header>
         <img src="./images/logo2.svg" alt="logo">
-        <h1 id="name-heading"> Welcome to the <br /> BBD Trivia Tournament</h1>
+        <h1 id="name-heading"> Welcome to the <br /> BBD Quiz Game</h1>
     </header>
 
     <main>
@@ -73,12 +73,25 @@
         </form>
 
         <br />
-        
+
     </main>
 
     <script src="js/index.js" type="module"></script>
 
     <script>
+
+        if (localStorage.getItem("alreadyRegistered") == "true") {
+            document.getElementById("first-name").value = localStorage.getItem("firstName");
+            document.getElementById("last-name").value = localStorage.getItem("lastName");
+            document.getElementById("degree").value = localStorage.getItem("degree");
+            document.getElementById("year").value = localStorage.getItem("year");
+            document.getElementById("email").value = localStorage.getItem("email");
+            document.getElementById("phone").value = localStorage.getItem("phone");
+            document.getElementById("consent").checked = localStorage.getItem("consent");
+        } else {
+            alert("not registered");
+        }
+
         function registerToTakePart() {
             let firstName = document.getElementById("first-name").value;
             let lastName = document.getElementById("last-name").value;
@@ -99,45 +112,53 @@
                 document.getElementById("consent-container").style.border = "none";
             }
 
-            if (firstName == ""){
+            if (firstName == "") {
                 document.getElementById("first-name").style.borderColor = "red";
                 valid = false;
             } else {
                 document.getElementById("first-name").style.borderColor = "rgba(255, 255, 255, 0.1)";
             }
-            if(lastName == ""){
+            if (lastName == "") {
                 document.getElementById("last-name").style.borderColor = "red";
                 valid = false;
             } else {
                 document.getElementById("last-name").style.borderColor = "rgba(255, 255, 255, 0.1)";
             }
-            if(degree == ""){
+            if (degree == "") {
                 document.getElementById("degree").style.borderColor = "red";
                 valid = false;
             } else {
                 document.getElementById("degree").style.borderColor = "rgba(255, 255, 255, 0.1)";
             }
-            if(year == ""){
+            if (year == "") {
                 document.getElementById("year").style.borderColor = "red";
                 valid = false;
             } else {
                 document.getElementById("year").style.borderColor = "rgba(255, 255, 255, 0.1)";
             }
-            if(email == ""){
+            if (email == "") {
                 document.getElementById("email").style.borderColor = "red";
                 valid = false;
             } else {
                 document.getElementById("email").style.borderColor = "rgba(255, 255, 255, 0.1)";
             }
-            if(phone == ""){
+            if (phone == "") {
                 document.getElementById("phone").style.borderColor = "red";
                 valid = false;
             } else {
                 document.getElementById("phone").style.borderColor = "rgba(255, 255, 255, 0.1)";
             }
 
-            if(valid){
-                alert("Registering...");
+            if (valid) {
+                localStorage.setItem("firstName", firstName);
+                localStorage.setItem("lastName", lastName);
+                localStorage.setItem("degree", degree);
+                localStorage.setItem("year", year);
+                localStorage.setItem("email", email);
+                localStorage.setItem("phone", phone);
+                localStorage.setItem("consent", consent);
+
+                localStorage.setItem("alreadyRegistered", true);
             }
         }
     </script>
