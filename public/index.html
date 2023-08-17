@@ -24,20 +24,123 @@
 
     <header>
         <img src="./images/logo2.svg" alt="logo">
-        <h1 id="name-heading"> Welcome to the <br /> QuizWizzyZilla Trivia Tournament</h1>
+        <h1 id="name-heading"> Welcome to the <br /> BBD Trivia Tournament</h1>
     </header>
 
     <main>
-        <p>Choose a provider to sign in with</p>
+        <p>Please complete the form below to take part in a quiz</p>
         <hr class="divider" />
-        <button class="single-signin" id="start-btn" data-provider="google"><img
-                src="images/btn_google_signin_light_normal_web@2x.png" width="300"></button>
-        <!-- <button class="single-signin" id="start-btn" data-provider="facebook"><img src="images/facebook.png" width="300"></button> -->
+
+        <form id="detail-capture" onsubmit="registerToTakePart">
+            <div class="floating-label-wrap mb">
+                <input type="text" class="floating-label-field floating-label-field--s3" id="first-name"
+                    name="first-name" placeholder="E.g. John" required>
+                <label for="first-name" class="floating-label">First Name</label>
+            </div>
+            <div class="floating-label-wrap mb2">
+                <input type="text" class="floating-label-field floating-label-field--s3" id="last-name" name="last-name"
+                    placeholder="E.g. Doe" required>
+                <label for="last-name" class="floating-label">Surname</label>
+            </div>
+            <div class="floating-label-wrap mb">
+                <input type="text" class="floating-label-field floating-label-field--s3" id="degree" name="degree"
+                    placeholder="E.g. BSc Computer Science" required>
+                <label for="degree" class="floating-label">Current Degree / Program</label>
+            </div>
+            <div class="floating-label-wrap mb2">
+                <input type="text" class="floating-label-field floating-label-field--s3" id="year" name="year"
+                    placeholder="E.g. 2nd Year" required>
+                <label for="year" class="floating-label">Current Year of Study</label>
+            </div>
+            <div class="floating-label-wrap mb">
+                <input type="email" class="floating-label-field floating-label-field--s3" id="email" name="email"
+                    placeholder="E.g. john.doe@gmail.com" required>
+                <label for="email" class="floating-label">Email Address</label>
+            </div>
+            <div class="floating-label-wrap mb2">
+                <input type="tel" class="floating-label-field floating-label-field--s3" id="phone" name="phone"
+                    placeholder="E.g. 0821234567" required>
+                <label for="phone" class="floating-label">Phone Number</label>
+            </div>
+            <label class="form-control mb2" id="consent-container">
+                <input type="checkbox" name="checkbox" id="consent" />
+                I consent to have my details collected and stored by BBD who may contact me in the future.
+            </label>
+
+            <p id="error-message"></p>
+
+            <button type="button" class="btn" onclick="registerToTakePart()">Register</button>
+        </form>
+
         <br />
-        <p id="error-message"></p>
+        
     </main>
 
     <script src="js/index.js" type="module"></script>
+
+    <script>
+        function registerToTakePart() {
+            let firstName = document.getElementById("first-name").value;
+            let lastName = document.getElementById("last-name").value;
+            let degree = document.getElementById("degree").value;
+            let year = document.getElementById("year").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let consent = document.getElementById("consent").checked;
+
+            let valid = true;
+
+            if (!consent) {
+                document.getElementById("error-message").textContent = "Please agree to the terms and conditions";
+                document.getElementById("consent-container").style.border = "solid 1px red";
+                valid = false;
+            } else {
+                document.getElementById("error-message").textContent = "";
+                document.getElementById("consent-container").style.border = "none";
+            }
+
+            if (firstName == ""){
+                document.getElementById("first-name").style.borderColor = "red";
+                valid = false;
+            } else {
+                document.getElementById("first-name").style.borderColor = "rgba(255, 255, 255, 0.1)";
+            }
+            if(lastName == ""){
+                document.getElementById("last-name").style.borderColor = "red";
+                valid = false;
+            } else {
+                document.getElementById("last-name").style.borderColor = "rgba(255, 255, 255, 0.1)";
+            }
+            if(degree == ""){
+                document.getElementById("degree").style.borderColor = "red";
+                valid = false;
+            } else {
+                document.getElementById("degree").style.borderColor = "rgba(255, 255, 255, 0.1)";
+            }
+            if(year == ""){
+                document.getElementById("year").style.borderColor = "red";
+                valid = false;
+            } else {
+                document.getElementById("year").style.borderColor = "rgba(255, 255, 255, 0.1)";
+            }
+            if(email == ""){
+                document.getElementById("email").style.borderColor = "red";
+                valid = false;
+            } else {
+                document.getElementById("email").style.borderColor = "rgba(255, 255, 255, 0.1)";
+            }
+            if(phone == ""){
+                document.getElementById("phone").style.borderColor = "red";
+                valid = false;
+            } else {
+                document.getElementById("phone").style.borderColor = "rgba(255, 255, 255, 0.1)";
+            }
+
+            if(valid){
+                alert("Registering...");
+            }
+        }
+    </script>
 </body>
 
 </html>
