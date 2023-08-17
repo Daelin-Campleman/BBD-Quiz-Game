@@ -33,12 +33,6 @@ app.use(session({
   saveUninitialized: false, // don't create session until something stored
   store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
 }));
-app.use(csrf());
-
-app.use(function(req, res, next) {
-  res.locals.csrfToken = req.csrfToken();
-  next();
-});
 
 app.use('/game', gameRouter)
 app.use('/home',express.static(__dirname + '/public'));
