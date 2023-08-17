@@ -26,10 +26,9 @@
         <img src="./images/logo2.svg" alt="logo">
         <h1 id="name-heading"> Welcome to the <br /> BBD Quiz Game</h1>
     </header>
-
+    <br /><br />
     <main>
         <p>Please complete the form below to take part in a quiz</p>
-        <hr class="divider" />
 
         <form id="detail-capture" onsubmit="registerToTakePart">
             <div class="floating-label-wrap mb">
@@ -64,7 +63,7 @@
             </div>
             <label class="form-control mb2" id="consent-container">
                 <input type="checkbox" name="checkbox" id="consent" />
-                I consent to have my details collected and stored by BBD who may contact me in the future.
+                <span><strong>I understand and agree:</strong> By checking this box, I hereby grant consent to BBD to collect and store the details provided above. I understand and acknowledge that BBD may use these details to contact me in the future. I am aware that I have the right to withdraw this consent at any time by contacting BBD.</span>
             </label>
 
             <!-- <p id="error-message"></p> -->
@@ -91,8 +90,6 @@
             document.getElementById("email").value = localStorage.getItem("email");
             document.getElementById("phone").value = localStorage.getItem("phone");
             document.getElementById("consent").checked = localStorage.getItem("consent");
-        } else {
-            alert("not registered");
         }
 
         function registerToTakePart() {

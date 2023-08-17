@@ -747,10 +747,11 @@ input[type="checkbox"] {
     appearance: none;
     background-color: rgb(9, 14, 59);
     margin: 0;
+    margin-top: 0.25em;
     font: inherit;
     color: currentColor;
-    width: 1.15em;
-    height: 1.15em;
+    width: 1.15em !important;
+    height: 1.15em !important;
     border: 0.15em solid rgba(255, 255, 255, 0.5);
     border-radius: 0.15em;
     transform: translateY(-0.075em);
@@ -788,4 +789,14 @@ input[type="checkbox"]:disabled {
 
 #error-message {
     color: red;
+}
+
+#consent-container span {
+    font-style: italic;
+    font-weight: 100;
+    line-height: 1.5em;
+}
+
+#consent-container span strong {
+    font-style: normal;
 }
