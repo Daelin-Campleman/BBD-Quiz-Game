@@ -67,9 +67,12 @@
                 I consent to have my details collected and stored by BBD who may contact me in the future.
             </label>
 
-            <p id="error-message"></p>
+            <!-- <p id="error-message"></p> -->
 
-            <button type="button" class="btn" onclick="registerToTakePart()">Register</button>
+            <section class="btns" style="display: flex; align-items: center; justify-content: start;">
+                <input type="reset" class="btn" value="Clear" style="background: none; border: solid 1px;">
+                <button type="button" class="btn" onclick="registerToTakePart()" style="width: 100%;">Register</button>
+            </section>
         </form>
 
         <br />
@@ -104,11 +107,11 @@
             let valid = true;
 
             if (!consent) {
-                document.getElementById("error-message").textContent = "Please agree to the terms and conditions";
+                // document.getElementById("error-message").textContent = "Please agree to the terms and conditions";
                 document.getElementById("consent-container").style.border = "solid 1px red";
                 valid = false;
             } else {
-                document.getElementById("error-message").textContent = "";
+                // document.getElementById("error-message").textContent = "";
                 document.getElementById("consent-container").style.border = "none";
             }
 
