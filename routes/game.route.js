@@ -1,5 +1,4 @@
-import passport from "passport";
-import { getGameLeaderboardRequest, insertUserRequest } from "../db/requests.js";
+import { getGameLeaderboardRequest } from "../db/requests.js";
 
 import path from "path";
 import { fileURLToPath } from 'url';
