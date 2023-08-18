@@ -112,26 +112,59 @@ export function selectFederatedCredentialsByIdRequest(provider, subject) {
     return execSQLRequest(sql, params);
 }
 
-export function insertUserRequest(name){
+export function insertUserRequest(userDetails){
 
     const sql = `
         INSERT INTO [dbo].[user] (
-            [username],
-            [name]
+            [first_name],
+            [last_name],
+            [degree],
+            [year],
+            [email],
+            [phone]
         ) 
         OUTPUT inserted.[user_id]
         VALUES (
-            'N/A',
-            @name
+            @first_name,
+            @last_name,
+            @degree,
+            @year,
+            @email,
+            @phone
         );
     `;
 
     const params = [
         {
-            name: "name",
+            name: "first_name",
             type: TYPES.VarChar,
-            value: name
-        }
+            value: userDetails.firstName
+        },
+        {
+            name: "last_name",
+            type: TYPES.VarChar,
+            value: userDetails.firstName
+        },
+        {
+            name: "degree",
+            type: TYPES.VarChar,
+            value: userDetails.surname
+        },
+        {
+            name: "degree",
+            type: TYPES.VarChar,
+            value: userDetails.degree
+        },
+        {
+            name: "email",
+            type: TYPES.VarChar,
+            value: userDetails.email
+        },
+        {
+            name: "phone",
+            type: TYPES.VarChar,
+            value: userDetails.phone
+        },
     ];
 
     return execSQLRequest(sql, params);
