@@ -1,5 +1,5 @@
 import passport from "passport";
-import { getGameLeaderboardRequest } from "../db/requests.js";
+import { getGameLeaderboardRequest, insertUserRequest } from "../db/requests.js";
 
 import path from "path";
 import { fileURLToPath } from 'url';
@@ -41,6 +41,24 @@ gameRouter.get("/leaderboard/all", async (req, res) => {
         res.status(400);
         res.send(err);
     })
+});
+
+gameRouter.post("/user/register", async (req, res) => {
+    try{
+        const response = await insertUserRequest(req.body);
+        const userId = response[0].get("user_id");
+
+        res.status(200).json({
+            "result" : "success"
+        });
+    } catch(e){
+
+        console.log(e);
+
+        res.status(400).json({
+            "result" : e
+        });
+    }
 });
 
 export default gameRouter;

@@ -92,7 +92,7 @@
             document.getElementById("consent").checked = localStorage.getItem("consent");
         }
 
-        function registerToTakePart() {
+        async function registerToTakePart() {
             let firstName = document.getElementById("first-name").value;
             let lastName = document.getElementById("last-name").value;
             let degree = document.getElementById("degree").value;
@@ -159,6 +159,26 @@
                 localStorage.setItem("consent", consent);
 
                 localStorage.setItem("alreadyRegistered", true);
+                
+                const user = {
+                    firstName : firstName,
+                    surname : lastName,
+                    degree : degree,
+                    year : year,
+                    email : email,
+                    consent : consent
+                }
+
+                let result = await fetch("/user/register", {
+                    method: "POST",
+                    headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                });
+
+                console.log(result);
             }
         }
     </script>
