@@ -143,17 +143,17 @@ export function insertUserRequest(userDetails){
         {
             name: "last_name",
             type: TYPES.VarChar,
-            value: userDetails.firstName
-        },
-        {
-            name: "degree",
-            type: TYPES.VarChar,
             value: userDetails.surname
         },
         {
             name: "degree",
             type: TYPES.VarChar,
             value: userDetails.degree
+        },
+        {
+            name: "year",
+            type: TYPES.VarChar,
+            value: userDetails.year
         },
         {
             name: "email",
