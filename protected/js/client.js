@@ -5,14 +5,14 @@ let timer;
 let joinCode = "";
 
 async function fetchName() {
-    let response = await fetch("/auth/user");
-    let data = await response.json();
-    return data.user.name;
+    return localStorage.getItem("firstName");
 }
 
 async function fetchPlayer() {
-    let response = await fetch("/auth/user");
-    let data = await response.json();
+    const data = {
+        name: localStorage.getItem("firstName"),
+        id: localStorage.getItem("id")
+    }
     return data;
 }
 
