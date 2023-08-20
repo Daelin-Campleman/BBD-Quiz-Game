@@ -8,8 +8,8 @@ if (window.location.host.includes("-qa")) {
     console.log("This is QA environment");
 }
 
-document.getElementById("start-btn").addEventListener("click", function (event) {
-    let provider = event.currentTarget.dataset.provider;
+// document.getElementById("start-btn").addEventListener("click", function (event) {
+//     let provider = event.currentTarget.dataset.provider;
 
-    window.location = `/auth/login/federated/${provider}`;
-});
+//     window.location = `/auth/login/federated/${provider}`;
+// });
