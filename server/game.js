@@ -346,6 +346,7 @@ function calculateQuestionNumber(joinCode, gameId) {
  */
 async function sendToDB(joinCode, gameId) {
   const game = liveGames.get(joinCode);
+
   let players = game.players;
   players = players.filter(p => p.answerHistory.length > 0);
   await saveGameLeaderBoardRequest(gameId, players);

@@ -178,12 +178,12 @@
                     body: JSON.stringify(user)
                 });
 
-                console.log(result);
+                result = await result.json();
 
-                if(result.body.result == "success"){
+                if(result.result == "success"){
                     localStorage.setItem("alreadyRegistered", true);
-                    localStorage.setItem("id", result.body.id);
-                    window.location = "/game/?join";
+                    localStorage.setItem("id", result.id);
+                    window.location = "/home";
                 } else {
                     console.log("Error registering...");
                     console.log(result);
