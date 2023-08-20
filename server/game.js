@@ -348,7 +348,7 @@ async function sendToDB(joinCode, gameId) {
 
   let players = game.players;
 
-  players = players.filter(p => !p.isHost && hotPotatoed);
+  players = players.filter(p => !p.isHost && !hotPotatoed);
   await saveGameLeaderBoardRequest(gameId, players);
   await savePlayerContactDetailsRequest(playerContactDetailsStore);
 }
