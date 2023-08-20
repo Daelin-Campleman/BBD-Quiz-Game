@@ -23,6 +23,8 @@ socket.onopen = () => {
     let create = urlParams.get('create');
     let join = urlParams.get('join');
 
+    console.log("Joined");
+
     if (create != null && join == null) {
         showGameOptions();
     } else if (create == null && join != null) {
@@ -55,6 +57,9 @@ socket.onopen = () => {
 
 socket.onmessage = async (event) => {
     let response = JSON.parse(event.data);
+
+    console.log(event);
+    console.log(response);
 
     switch (response['requestType']) {
         case "JOIN":
@@ -241,12 +246,13 @@ async function createGame() {
     }
 
     let user = await fetchPlayer();
+
     socket.send(JSON.stringify({
         questionsPerRound: numQuestions,
         numberOfRounds: numRounds,
         roundLength: time * 1000,
         difficulties: difficultyString,
-        player: user['user'],
+        player: user,
         requestType: "CREATE"
     }));
 
@@ -282,7 +288,7 @@ async function joinGame() {
     let user = await fetchPlayer();
     socket.send(JSON.stringify({
         joinCode: joinCode,
-        player: user['user'],
+        player: user,
         requestType: "JOIN"
     }));
 }
@@ -293,7 +299,7 @@ async function sendAnswer(answer) {
         answer: answer,
         requestType: "ANSWER",
         joinCode: joinCode,
-        player: user['user']
+        player: user
     }));
 }
 

@@ -13,13 +13,14 @@ const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 process.on("uncaughtException", (error) => {
-  DEBUG(`uncaught exception: ${error}`);
+  console.log(`uncaught exception: ${error}`);
+  console.log(error);
   //process.exit(1);
 });
 
 process.on("unhandledRejection", (err) => {
-  DEBUG(err);
-  DEBUG("Unhandled Rejection:", {
+  console.log(err);
+  console.log("Unhandled Rejection:", {
     name: err.name,
     message: err.message || err,
   });

@@ -15,19 +15,25 @@ import { config } from "dotenv";
  * 
  */
 async function getQuestions(gameOptions) {
+
     console.log("Getting questions");
+
     let removedQuestions = 0;
     const URL = "https://quizapi.io/api/v1/questions"
+
     const defaultOptions = {
         questionsPerRound: 5,
         numberOfRounds: 1,
         categories: "technology",
         difficulties: "medium"
     }
+
     let finalGameOptions = {...defaultOptions, ...gameOptions};
     let full_url = URL + `?apiKey=${process.env.API_KEY}&limit=${finalGameOptions.questionsPerRound * finalGameOptions.numberOfRounds}&difficulty=${finalGameOptions.difficulties}`;
+
     let res = await fetch(full_url);
     let data = await res.json();
+
     let filteredData = data.filter(question => {
         if(question.multiple_correct_answers == "true"){
             removedQuestions++;
@@ -36,6 +42,7 @@ async function getQuestions(gameOptions) {
             return true;
         }
     });
+
     let mappedData = filteredData.map(question => {
         return {
             question: question.question,
@@ -49,8 +56,10 @@ async function getQuestions(gameOptions) {
         tmpGameOptions.questionsPerRound = removedQuestions;
         tmpGameOptions.numberOfRounds = 1;
         console.log("Getting " + removedQuestions + " more questions.");
-        mappedData += getQuestions(tmpGameOptions);
+        mappedData += await getQuestions(tmpGameOptions);
     }
+
+    //console.log(mappedData);
 
     return mappedData;
 }

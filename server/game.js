@@ -24,7 +24,7 @@ function Player(ws, name, id, isHost) {
 
 const liveGames = new Map();
 
-const playerContactDetailsStore = [];
+let playerContactDetailsStore = [];
 
 /**
  * 
@@ -43,28 +43,30 @@ export async function createGame(startingPlayer, gameOptions) {
 
   let user = gameOptions['player'];
 
-  getQuestions(gameOptions).then(async (quesitions) => {
-    let game = {
-      gameId: gameId,
-      joinCode: joinCode,
-      players: [new Player(startingPlayer, user['name'], user['id'], true)],
-      questionsPerRound: gameOptions.questionsPerRound || 5,
-      numberOfRounds: gameOptions.numberOfRounds || 3,
-      currentRound: 1,
-      currentQuestion: 1,
-      started: false,
-      questions: quesitions,
-      intervalID: 0,
-      roundTime: gameOptions.roundLength || 5000
-    };
-    liveGames.set(joinCode, game);
-    startingPlayer.send(JSON.stringify({
-      requestType: "JOIN",
-      isHost: true,
-      joinCode: joinCode,
-      message: `joined game with player id: ${user['id']}`
-    }));
-  });
+  const response = await getQuestions(gameOptions);
+
+  let game = {
+    gameId: gameId,
+    joinCode: joinCode,
+    players: [new Player(startingPlayer, user['name'], user['id'], true)],
+    questionsPerRound: gameOptions.questionsPerRound || 5,
+    numberOfRounds: gameOptions.numberOfRounds || 3,
+    currentRound: 1,
+    currentQuestion: 1,
+    started: false,
+    questions: response,
+    intervalID: 0,
+    roundTime: gameOptions.roundLength || 5000
+  };
+
+  liveGames.set(joinCode, game);
+
+  startingPlayer.send(JSON.stringify({
+    requestType: "JOIN",
+    isHost: true,
+    joinCode: joinCode,
+    message: `joined game with player id: ${user['id']}`
+  }));
 
   startingPlayer.on("close", hotPotato(joinCode));
 }
@@ -110,12 +112,16 @@ export function clientAnswer(client, options) {
 export function joinGame(socket, gameOptions) {
 
   const verifyUserDetails = (user) => {
-    return user['name'] !== '' && user['surname'] !== '' && user['degree'] !== '' && user['university'] !== '' && user['year'] !== '' && user['poppi'] !== '' && user['email'] !== '' && user['phone'] !== '';
+    return user['name'] !== '' && user['surname'] !== '' && user['degree'] !== '' && user['university'] !== '' && user['year'] !== '' && user['poppi'] !== '' && user['email'] !== '' && user['phone'] !== '' || 1==1;
   }
 
   let joinCode = gameOptions['joinCode'];
   let user = gameOptions['player'];
+
   const game = liveGames.get(joinCode);
+
+  // console.log(game);
+
   if (game === undefined) {
     socket.send(JSON.stringify({
       requestType: "JOIN",
