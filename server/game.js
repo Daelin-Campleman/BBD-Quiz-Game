@@ -42,9 +42,7 @@ export async function createGame(startingPlayer, gameOptions) {
   let gameId = result[0].get("game_id");
 
   let user = gameOptions['player'];
-
-  const response = await getQuestions(gameOptions);
-
+  let questions = getQuestions(gameOptions);
   let game = {
     gameId: gameId,
     joinCode: joinCode,
@@ -54,13 +52,11 @@ export async function createGame(startingPlayer, gameOptions) {
     currentRound: 1,
     currentQuestion: 1,
     started: false,
-    questions: response,
+    questions: questions,
     intervalID: 0,
     roundTime: gameOptions.roundLength || 5000
   };
-
   liveGames.set(joinCode, game);
-
   startingPlayer.send(JSON.stringify({
     requestType: "JOIN",
     isHost: true,
