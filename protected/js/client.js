@@ -181,7 +181,7 @@ function handleRoundOver(msg) {
 function handleGameOver(msg) {
     let playerDetails = msg['playerDetails'];
     localStorage.setItem("playerDetails", playerDetails);
-    window.location = "/leaderboard?gameId=" + msg['gameId'];
+    window.location = "/home/leaderboard?gameId=" + msg['gameId'];
 }
 
 async function showCreatorWaitingScreen(response) {
