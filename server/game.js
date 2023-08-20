@@ -12,7 +12,7 @@ function PlayerContactDetails(name, surname, degree, university, year, poppi, em
   this.phone = phone;
 }
 
-function Player(ws, name, id, isHost) {
+function Player(ws, name, id, isHost, isOriginalHost = false) {
   this.ws = ws;
   this.name = name;
   this.id = id;
@@ -20,6 +20,7 @@ function Player(ws, name, id, isHost) {
   this.currentAnswer = "";
   this.answerHistory = [];
   this.isHost = isHost;
+  this.isOriginalHost = isOriginalHost;
 }
 
 const liveGames = new Map();
@@ -48,7 +49,7 @@ export async function createGame(startingPlayer, gameOptions) {
   let game = {
     gameId: gameId,
     joinCode: joinCode,
-    players: [new Player(startingPlayer, user['name'], user['id'], true)],
+    players: [new Player(startingPlayer, user['name'], user['id'], true, true)],
     questionsPerRound: gameOptions.questionsPerRound || 5,
     numberOfRounds: gameOptions.numberOfRounds || 3,
     currentRound: 1,
@@ -56,7 +57,7 @@ export async function createGame(startingPlayer, gameOptions) {
     started: false,
     questions: questions,
     intervalID: 0,
-    roundTime: gameOptions.roundLength || 5000
+    roundTime: gameOptions.roundLength || 5000,
   };
   liveGames.set(joinCode, game);
   startingPlayer.send(JSON.stringify({
@@ -352,7 +353,7 @@ async function sendToDB(joinCode, gameId) {
 
   let players = game.players;
 
-  players = players.filter(p => !p.isHost && !hotPotatoed);
+  players = players.filter(p => !p.isHost);
   await saveGameLeaderBoardRequest(gameId, players);
   await savePlayerContactDetailsRequest(playerContactDetailsStore);
 }
