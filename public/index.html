@@ -183,7 +183,17 @@
                 if(result.result == "success"){
                     localStorage.setItem("alreadyRegistered", true);
                     localStorage.setItem("id", result.id);
-                    window.location = "/home";
+
+                    // get url param "join"
+                    let urlParams = new URLSearchParams(window.location.search);
+                    let joinCode = urlParams.get('join');
+
+                    // check if join is set
+                    if (joinCode != null) {
+                        window.location = "/home/game/?join=" + joinCode;
+                    } else{
+                        window.location = "/home";
+                    }
                 } else {
                     console.log("Error registering...");
                     console.log(result);

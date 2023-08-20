@@ -1,5 +1,16 @@
 if(!localStorage.getItem("alreadyRegistered") || localStorage.getItem("alreadyRegistered") != "true"){
-    window.location = "/";
+    // get url param "join"
+    let urlParams = new URLSearchParams(window.location.search);
+    let join = urlParams.get('join');
+
+    // check if it exists
+    if (join != null) {
+        window.location = "/?join=" + join;
+    } else {
+        window.location = "/";
+    }
+
+    
 }
 
 const wsURL = window.location.host.includes("localhost") ? `ws://${window.location.host}/` : `wss://${window.location.host}/`;
