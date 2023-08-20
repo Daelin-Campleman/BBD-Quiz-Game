@@ -4,18 +4,18 @@
         "type": "multiple",
         "difficulty": "easy",
         "question": "In any programming language, what is the most common way to iterate through an array?",
-        "correctAnswer": "&#039;For&#039; loops",
+        "correctAnswer": "'For' loops",
         "incorrectAnswers": [
-            "&#039;If&#039; Statements",
-            "&#039;Do-while&#039; loops",
-            "&#039;While&#039; loops"
+            "'If' Statements",
+            "'Do-while' loops",
+            "'While' loops"
         ]
     },
     {
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "Which internet company began life as an online bookstore called &#039;Cadabra&#039;?",
+        "question": "Which internet company began life as an online bookstore called 'Cadabra'?",
         "correctAnswer": "Amazon",
         "incorrectAnswers": [
             "eBay",
@@ -51,7 +51,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "Moore&#039;s law originally stated that the number of transistors on a microprocessor chip would double every...",
+        "question": "Moore's law originally stated that the number of transistors on a microprocessor chip would double every...",
         "correctAnswer": "Year",
         "incorrectAnswers": [
             "Four Years",
@@ -87,7 +87,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+        "question": "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn't get modified?",
         "correctAnswer": "Final",
         "incorrectAnswers": [
             "Static",
@@ -128,7 +128,7 @@
         "incorrectAnswers": [
             "United States",
             "Germany",
-            "China (People&#039;s Republic of)"
+            "China (People's Republic of)"
         ]
     },
     {
@@ -267,7 +267,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "In &quot;Hexadecimal&quot;, what color would be displayed from the color code? &quot;#00FF00&quot;?",
+        "question": "In \"Hexadecimal\", what color would be displayed from the color code? \"#00FF00\"?",
         "correctAnswer": "Green",
         "incorrectAnswers": [
             "Red",
@@ -339,7 +339,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What is known as &quot;the brain&quot; of the Computer?",
+        "question": "What is known as \"the brain\" of the Computer?",
         "correctAnswer": "Central Processing Unit",
         "incorrectAnswers": [
             "Motherboard",
@@ -411,7 +411,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "When did the online streaming service &quot;Mixer&quot; launch?",
+        "question": "When did the online streaming service \"Mixer\" launch?",
         "correctAnswer": "2016",
         "incorrectAnswers": [
             "2013",
@@ -483,7 +483,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Who invented the &quot;Spanning Tree Protocol&quot;?",
+        "question": "Who invented the \"Spanning Tree Protocol\"?",
         "correctAnswer": "Radia Perlman",
         "incorrectAnswers": [
             "Paul Vixie",
@@ -531,12 +531,12 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "According to DeMorgan&#039;s Theorem, the Boolean expression (AB)&#039; is equivalent to:",
-        "correctAnswer": "A&#039; + B&#039;",
+        "question": "According to DeMorgan's Theorem, the Boolean expression (AB)' is equivalent to:",
+        "correctAnswer": "A' + B'",
         "incorrectAnswers": [
-            "A&#039;B + B&#039;A",
-            "A&#039;B&#039;",
-            "AB&#039; + AB"
+            "A'B + B'A",
+            "A'B'",
+            "AB' + AB"
         ]
     },
     {
@@ -583,7 +583,7 @@
         "correctAnswer": "Midnight, January 1, 1970",
         "incorrectAnswers": [
             "Midnight, July 4, 1976",
-            "Midnight on the creator of Unix&#039;s birthday",
+            "Midnight on the creator of Unix's birthday",
             "Midnight, July 4, 1980"
         ]
     },
@@ -675,7 +675,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "Nvidia&#039;s headquarters are based in which Silicon Valley city?",
+        "question": "Nvidia's headquarters are based in which Silicon Valley city?",
         "correctAnswer": "Santa Clara",
         "incorrectAnswers": [
             "Palo Alto",
@@ -759,12 +759,12 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "In the programming language &quot;Python&quot;, which of these statements would display the string &quot;Hello World&quot; correctly?",
-        "correctAnswer": "print(&quot;Hello World&quot;)",
+        "question": "In the programming language \"Python\", which of these statements would display the string \"Hello World\" correctly?",
+        "correctAnswer": "print(\"Hello World\")",
         "incorrectAnswers": [
-            "console.log(&quot;Hello World&quot;)",
-            "echo &quot;Hello World&quot;",
-            "printf(&quot;Hello World&quot;)"
+            "console.log(\"Hello World\")",
+            "echo \"Hello World\"",
+            "printf(\"Hello World\")"
         ]
     },
     {
@@ -855,7 +855,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "What was the first company to use the term &quot;Golden Master&quot;?",
+        "question": "What was the first company to use the term \"Golden Master\"?",
         "correctAnswer": "Apple",
         "incorrectAnswers": [
             "IBM",
@@ -867,7 +867,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Released in 2001, the first edition of Apple&#039;s Mac OS X operating system (version 10.0) was given what animal code name?",
+        "question": "Released in 2001, the first edition of Apple's Mac OS X operating system (version 10.0) was given what animal code name?",
         "correctAnswer": "Cheetah",
         "incorrectAnswers": [
             "Puma",
@@ -903,7 +903,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "The acronym &quot;RIP&quot; stands for which of these?",
+        "question": "The acronym \"RIP\" stands for which of these?",
         "correctAnswer": "Routing Information Protocol",
         "incorrectAnswers": [
             "Runtime Instance Processes",
@@ -975,7 +975,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "What does the &quot;MP&quot; stand for in MP3?",
+        "question": "What does the \"MP\" stand for in MP3?",
         "correctAnswer": "Moving Picture",
         "incorrectAnswers": [
             "Music Player",
@@ -987,7 +987,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "The programming language &#039;Swift&#039; was created to replace what other programming language?",
+        "question": "The programming language 'Swift' was created to replace what other programming language?",
         "correctAnswer": "Objective-C",
         "incorrectAnswers": [
             "C#",
@@ -1023,7 +1023,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "easy",
-        "question": "If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.",
+        "question": "If you were to code software in this language you'd only be able to type 0's and 1's.",
         "correctAnswer": "Binary",
         "incorrectAnswers": [
             "JavaScript",
@@ -1060,11 +1060,11 @@
         "type": "multiple",
         "difficulty": "medium",
         "question": "In HTML, which non-standard tag used to be be used to make elements scroll across the viewport?",
-        "correctAnswer": "&lt;marquee&gt;&lt;/marquee&gt;",
+        "correctAnswer": "<marquee></marquee>",
         "incorrectAnswers": [
-            "&lt;scroll&gt;&lt;/scroll&gt;",
-            "&lt;move&gt;&lt;/move&gt;",
-            "&lt;slide&gt;&lt;/slide&gt;"
+            "<scroll></scroll>",
+            "<move></move>",
+            "<slide></slide>"
         ]
     },
     {
@@ -1143,7 +1143,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What does the &#039;S&#039; in the RSA encryption algorithm stand for?",
+        "question": "What does the 'S' in the RSA encryption algorithm stand for?",
         "correctAnswer": "Shamir",
         "incorrectAnswers": [
             "Secure",
@@ -1155,7 +1155,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "hard",
-        "question": "Lenovo acquired IBM&#039;s personal computer division, including the ThinkPad line of laptops and tablets, in what year?",
+        "question": "Lenovo acquired IBM's personal computer division, including the ThinkPad line of laptops and tablets, in what year?",
         "correctAnswer": "2005",
         "incorrectAnswers": [
             "1999",
@@ -1179,7 +1179,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "When was the programming language &quot;C#&quot; released?",
+        "question": "When was the programming language \"C#\" released?",
         "correctAnswer": "2000",
         "incorrectAnswers": [
             "1998",
@@ -1204,10 +1204,10 @@
         "type": "multiple",
         "difficulty": "easy",
         "question": "What does the Prt Sc button do?",
-        "correctAnswer": "Captures what&#039;s on the screen and copies it to your clipboard",
+        "correctAnswer": "Captures what's on the screen and copies it to your clipboard",
         "incorrectAnswers": [
             "Nothing",
-            "Saves a .png file of what&#039;s on the screen in your screenshots folder in photos",
+            "Saves a .png file of what's on the screen in your screenshots folder in photos",
             "Closes all windows"
         ]
     },
@@ -1215,7 +1215,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "In CSS, which of these values CANNOT be used with the &quot;position&quot; property?",
+        "question": "In CSS, which of these values CANNOT be used with the \"position\" property?",
         "correctAnswer": "center",
         "incorrectAnswers": [
             "static",
@@ -1455,7 +1455,7 @@
         "category": "Science: Computers",
         "type": "multiple",
         "difficulty": "medium",
-        "question": "What does &quot;LCD&quot; stand for?",
+        "question": "What does \"LCD\" stand for?",
         "correctAnswer": "Liquid Crystal Display",
         "incorrectAnswers": [
             "Language Control Design",
