@@ -42,29 +42,27 @@ export async function createGame(startingPlayer, gameOptions) {
   let gameId = result[0].get("game_id");
 
   let user = gameOptions['player'];
-
-  getQuestions(gameOptions).then(async (quesitions) => {
-    let game = {
-      gameId: gameId,
-      joinCode: joinCode,
-      players: [new Player(startingPlayer, user['name'], user['id'], true)],
-      questionsPerRound: gameOptions.questionsPerRound || 5,
-      numberOfRounds: gameOptions.numberOfRounds || 3,
-      currentRound: 1,
-      currentQuestion: 1,
-      started: false,
-      questions: quesitions,
-      intervalID: 0,
-      roundTime: gameOptions.roundLength || 5000
-    };
-    liveGames.set(joinCode, game);
-    startingPlayer.send(JSON.stringify({
-      requestType: "JOIN",
-      isHost: true,
-      joinCode: joinCode,
-      message: `joined game with player id: ${user['id']}`
-    }));
-  });
+  let questions = getQuestions(gameOptions);
+  let game = {
+    gameId: gameId,
+    joinCode: joinCode,
+    players: [new Player(startingPlayer, user['name'], user['id'], true)],
+    questionsPerRound: gameOptions.questionsPerRound || 5,
+    numberOfRounds: gameOptions.numberOfRounds || 3,
+    currentRound: 1,
+    currentQuestion: 1,
+    started: false,
+    questions: questions,
+    intervalID: 0,
+    roundTime: gameOptions.roundLength || 5000
+  };
+  liveGames.set(joinCode, game);
+  startingPlayer.send(JSON.stringify({
+    requestType: "JOIN",
+    isHost: true,
+    joinCode: joinCode,
+    message: `joined game with player id: ${user['id']}`
+  }));
 
   startingPlayer.on("close", hotPotato(joinCode));
 }

@@ -4,6 +4,8 @@
  */
 import fetch from "node-fetch";
 import { config } from "dotenv";
+import fs from 'fs'
+
 
 /**
  * 
@@ -14,29 +16,21 @@ import { config } from "dotenv";
  * Fetches questions from external API
  * 
  */
-async function getQuestions(gameOptions) {
+function getQuestions(gameOptions) {
     console.log("Getting questions");
-    let removedQuestions = 0;
-    const URL = "https://quizapi.io/api/v1/questions"
     const defaultOptions = {
         questionsPerRound: 5,
         numberOfRounds: 1,
         categories: "technology",
-        difficulties: "medium"
+        difficulties: "easy"
     }
     let finalGameOptions = {...defaultOptions, ...gameOptions};
-    let full_url = URL + `?apiKey=${process.env.API_KEY}&limit=${finalGameOptions.questionsPerRound * finalGameOptions.numberOfRounds}&difficulty=${finalGameOptions.difficulties}`;
-    let res = await fetch(full_url);
-    let data = await res.json();
-    let filteredData = data.filter(question => {
-        if(question.multiple_correct_answers == "true"){
-            removedQuestions++;
-            return false;
-        } else {
-            return true;
-        }
-    });
-    let mappedData = filteredData.map(question => {
+    let rawdata = fs.readFileSync('./questions.json');
+    let data = JSON.parse(rawdata);
+    data = data.filter(q => q.difficulty.toUpperCase() === finalGameOptions.difficulties.toUpperCase());
+    data = getRandomQuestions(data, finalGameOptions.questionsPerRound * finalGameOptions.numberOfRounds);
+
+    let mappedData = data.map(question => {
         return {
             question: question.question,
             incorrectAnswers: getIncorrectAnswers(question.answers, question.correct_answers),
@@ -44,15 +38,20 @@ async function getQuestions(gameOptions) {
         }
     });
 
-    if(removedQuestions != 0){
-        let tmpGameOptions = gameOptions;
-        tmpGameOptions.questionsPerRound = removedQuestions;
-        tmpGameOptions.numberOfRounds = 1;
-        console.log("Getting " + removedQuestions + " more questions.");
-        mappedData += getQuestions(tmpGameOptions);
-    }
-
     return mappedData;
+}
+
+function getRandomQuestions(questions, numQuestions) {
+    var arr = [];
+    while(arr.length < numQuestions){
+        var r = Math.floor(Math.random() * 100) + 1;
+        if(arr.indexOf(r) === -1) arr.push(r);
+    }
+    let randomQ = [];
+    arr.forEach(i => {
+        randomQ.push(questions[i]);
+    });
+    return randomQ;
 }
 
 function getIncorrectAnswers(answers, correctArr){
