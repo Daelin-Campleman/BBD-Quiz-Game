@@ -1,6 +1,8 @@
 function loadLeaderBoard(items) {
     const table = document.getElementById("results");   
     let order = 0;
+
+    console.log(items);
     
     // Loop through
     for (let i = 0; i < items.length; i++) {

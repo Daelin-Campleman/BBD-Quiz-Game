@@ -23,7 +23,7 @@ export function createGameRequest(joinCode) {
 export function getGameLeaderboardRequest(gameID) {
 
     let sql = `
-    SELECT u.name, s.score
+    SELECT u.first_name, s.score
     FROM [user] u
     INNER JOIN game_score s
     ON u.user_id = s.user_id

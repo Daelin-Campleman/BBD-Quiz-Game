@@ -13,25 +13,20 @@ const gameRouter = Router()
 gameRouter.get("/leaderboard", async (req, res) => {
     let gameId = req.query.gameId;
     getGameLeaderboardRequest(gameId).then((leaderboard) => {
-        if (leaderboard.length === 0) {
-            res.status(404).json({
-                error: "No scores found for game ID"
-            });
-        } else {
-            let results = leaderboard.map(score => {
-                return {
-                    "name" : score.get("name"),
-                    "score" : score.get("score")
-                }
-            })
+        let results = leaderboard.map(score => {
+            return {
+                "name" : score.get("first_name"),
+                "score" : score.get("score")
+            }
+        })
 
-            let jsonMap = JSON.stringify(results);
+        let jsonMap = JSON.stringify(results);
 
-            res.status(200).json({
-                leaderboard: jsonMap
-            });
-        }
+        res.status(200).json({
+            leaderboard: jsonMap
+        });
     }).catch((err) => {
+        console.log(err);
         res.status(400);
         res.send(err);
     })
