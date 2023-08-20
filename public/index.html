@@ -158,8 +158,6 @@
                 localStorage.setItem("phone", phone);
                 localStorage.setItem("consent", consent);
                 localStorage.setItem("id", uuidv4());
-
-                localStorage.setItem("alreadyRegistered", true);
                 
                 const user = {
                     firstName : firstName,
@@ -181,6 +179,14 @@
                 });
 
                 console.log(result);
+
+                if(result.body.result == "success"){
+                    localStorage.setItem("alreadyRegistered", true);
+                    window.location = "/game/?join";
+                } else {
+                    console.log("Error registering...");
+                    console.log(result);
+                }
             }
         }
 
