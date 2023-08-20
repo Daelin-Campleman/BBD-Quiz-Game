@@ -201,11 +201,6 @@ async function showCreatorWaitingScreen(response) {
 
     createPlayerList();
 
-    let li = document.createElement('li');
-    li.textContent = await fetchName();
-
-    document.getElementById('player-list').appendChild(li);
-
     let startBtn = document.getElementById("start-btn");
     startBtn.onclick = startGame;
     startBtn.classList.remove("hidden");
