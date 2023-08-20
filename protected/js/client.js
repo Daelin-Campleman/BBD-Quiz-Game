@@ -184,12 +184,8 @@ async function showCreatorWaitingScreen(response) {
     let joinCodeEl = document.createElement('h3');
     joinCodeEl.textContent = joinCode;
     let qrCode = document.createElement('img');
-    let link = "";
-    if (window.location.host.includes("-qa")) {
-        link = `http://quizwizzyzilla-qa.azurewebsites.net/game?join=${joinCode}`;
-    } else {
-        link = `http://quizwizzy.co.za/game?join=${joinCode}`;
-    }
+    let link = `${location.protocol}//${location.host}/game?join=${joinCode}`;
+
     qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${link}&size=200x200&bgcolor=ffffff&color=380036&margin=5`;
     document.getElementById('join-code').appendChild(joinCodeEl);
     document.getElementById('join-code').appendChild(qrCode);
