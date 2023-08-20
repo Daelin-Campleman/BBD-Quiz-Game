@@ -236,19 +236,6 @@ async function createGame() {
     let numQuestions = Number(document.getElementById("number-of-questions").value);
     let numRounds = Number(document.getElementById("number-of-rounds").value);
     let time = Number(document.getElementById("time-per-questions").value);
-    let difficultyEasy = document.getElementById("question-difficulty-easy").checked;
-    let difficultyMedium = document.getElementById("question-difficulty-medium").checked;
-    let difficultyHard = document.getElementById("question-difficulty-hard").checked;
-
-    let difficultyString = difficultyEasy ? "easy," : "";
-    difficultyString += difficultyMedium ? "medium," : "";
-    difficultyString += difficultyHard ? "hard," : "";
-
-    if (difficultyString == "") {
-        difficultyString = "easy,medium,hard";
-    } else {
-        difficultyString = difficultyString.slice(0, -1);
-    }
 
     let user = await fetchPlayer();
 
@@ -256,7 +243,6 @@ async function createGame() {
         questionsPerRound: numQuestions,
         numberOfRounds: numRounds,
         roundLength: time * 1000,
-        difficulties: difficultyString,
         player: user,
         requestType: "CREATE"
     }));
