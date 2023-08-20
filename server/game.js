@@ -24,7 +24,7 @@ function Player(ws, name, id, isHost) {
 
 const liveGames = new Map();
 
-const playerContactDetailsStore = [];
+let playerContactDetailsStore = [];
 
 /**
  * 
@@ -108,12 +108,16 @@ export function clientAnswer(client, options) {
 export function joinGame(socket, gameOptions) {
 
   const verifyUserDetails = (user) => {
-    return user['name'] !== '' && user['surname'] !== '' && user['degree'] !== '' && user['university'] !== '' && user['year'] !== '' && user['poppi'] !== '' && user['email'] !== '' && user['phone'] !== '';
+    return user['name'] !== '' && user['surname'] !== '' && user['degree'] !== '' && user['university'] !== '' && user['year'] !== '' && user['poppi'] !== '' && user['email'] !== '' && user['phone'] !== '' || 1==1;
   }
 
   let joinCode = gameOptions['joinCode'];
   let user = gameOptions['player'];
+
   const game = liveGames.get(joinCode);
+
+  // console.log(game);
+
   if (game === undefined) {
     socket.send(JSON.stringify({
       requestType: "JOIN",

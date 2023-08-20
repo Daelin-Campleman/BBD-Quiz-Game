@@ -1,3 +1,7 @@
+if(!localStorage.getItem("alreadyRegistered") || localStorage.getItem("alreadyRegistered") != "true"){
+    window.location = "/";
+}
+
 const wsURL = window.location.host.includes("localhost") ? `ws://${window.location.host}/` : `wss://${window.location.host}/`;
 const socket = new WebSocket(wsURL);
 
@@ -22,6 +26,8 @@ socket.onopen = () => {
     let urlParams = new URLSearchParams(window.location.search);
     let create = urlParams.get('create');
     let join = urlParams.get('join');
+
+    console.log("Joined");
 
     if (create != null && join == null) {
         showGameOptions();
@@ -55,6 +61,9 @@ socket.onopen = () => {
 
 socket.onmessage = async (event) => {
     let response = JSON.parse(event.data);
+
+    console.log(event);
+    console.log(response);
 
     switch (response['requestType']) {
         case "JOIN":
@@ -184,12 +193,7 @@ async function showCreatorWaitingScreen(response) {
     let joinCodeEl = document.createElement('h3');
     joinCodeEl.textContent = joinCode;
     let qrCode = document.createElement('img');
-    let link = "";
-    if (window.location.host.includes("-qa")) {
-        link = `http://quizwizzyzilla-qa.azurewebsites.net/game?join=${joinCode}`;
-    } else {
-        link = `http://quizwizzy.co.za/game?join=${joinCode}`;
-    }
+    let link = `${location.protocol}//${location.host}/game?join=${joinCode}`;
     qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?data=${link}&size=200x200&bgcolor=ffffff&color=380036&margin=5`;
     document.getElementById('join-code').appendChild(joinCodeEl);
     document.getElementById('join-code').appendChild(qrCode);
@@ -241,12 +245,13 @@ async function createGame() {
     }
 
     let user = await fetchPlayer();
+
     socket.send(JSON.stringify({
         questionsPerRound: numQuestions,
         numberOfRounds: numRounds,
         roundLength: time * 1000,
         difficulties: difficultyString,
-        player: user['user'],
+        player: user,
         requestType: "CREATE"
     }));
 
@@ -282,7 +287,7 @@ async function joinGame() {
     let user = await fetchPlayer();
     socket.send(JSON.stringify({
         joinCode: joinCode,
-        player: user['user'],
+        player: user,
         requestType: "JOIN"
     }));
 }
@@ -293,7 +298,7 @@ async function sendAnswer(answer) {
         answer: answer,
         requestType: "ANSWER",
         joinCode: joinCode,
-        player: user['user']
+        player: user
     }));
 }
 

@@ -24,6 +24,7 @@ function getQuestions(gameOptions) {
         categories: "technology",
         difficulties: "easy"
     }
+
     let finalGameOptions = {...defaultOptions, ...gameOptions};
     let rawdata = fs.readFileSync('./questions.json');
     let data = JSON.parse(rawdata);

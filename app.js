@@ -22,6 +22,7 @@ const SQLiteStore = connectSqlite(session);
 if (["development", "production"].includes(process.env.NODE_ENV)) {
   app.use(logger("dev"));
 }
+app.use(logger("dev"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
