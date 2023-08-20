@@ -13,7 +13,7 @@ if(!localStorage.getItem("alreadyRegistered") || localStorage.getItem("alreadyRe
     
 }
 
-const wsURL = window.location.host.includes("localhost") ? `ws://${window.location.host}/` : `wss://${window.location.host}/`;
+const wsURL = `ws://${window.location.host}/`;
 const socket = new WebSocket(wsURL);
 
 let timer;
