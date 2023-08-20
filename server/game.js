@@ -24,6 +24,8 @@ function Player(ws, name, id, isHost) {
 
 const liveGames = new Map();
 
+let hotPotatoed = false;
+
 let playerContactDetailsStore = [];
 
 /**
@@ -69,6 +71,7 @@ export async function createGame(startingPlayer, gameOptions) {
 
 function hotPotato(joinCode) {
   return function() {
+    hotPotatoed = true;
     if (liveGames.get(joinCode).players.length == 1 || liveGames.get(joinCode).started == false) {
       endGame(joinCode);
     }
@@ -344,7 +347,12 @@ async function sendToDB(joinCode, gameId) {
   const game = liveGames.get(joinCode);
 
   let players = game.players;
-  players = players.filter(p => p.answerHistory.length > 0);
+
+  players = players.filter(p => !p.isHost && hotPotatoed);
   await saveGameLeaderBoardRequest(gameId, players);
   await savePlayerContactDetailsRequest(playerContactDetailsStore);
+}
+
+function isEmpty(answer){
+  return asnwer == "";
 }
