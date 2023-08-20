@@ -581,7 +581,7 @@ footer {
 .wave {
     width: 5px;
     height: 100px;
-    background: linear-gradient(45deg, black, #c80000, black);
+    background: #c80000;
     margin: 10px;
     animation: wave 1s linear infinite;
     border-radius: 20px;
