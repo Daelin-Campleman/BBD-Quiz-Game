@@ -72,6 +72,10 @@ export async function createGame(startingPlayer, gameOptions) {
 function hotPotato(joinCode) {
   return function() {
     hotPotatoed = true;
+
+    if (liveGames.get(joinCode) == undefined)
+      return;
+
     if (liveGames.get(joinCode).players.length == 1 || liveGames.get(joinCode).started == false) {
       endGame(joinCode);
     }
