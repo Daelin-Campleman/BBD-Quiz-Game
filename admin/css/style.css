@@ -1,0 +1,809 @@
+html {
+    background-color: #C89090;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(360,960,484)'%3E%3Cstop offset='0' stop-color='%23C89090'/%3E%3Cstop offset='1' stop-color='%23C89090'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.02'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100vh;
+    background-color: #C89090;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(360,960,484)'%3E%3Cstop offset='0' stop-color='%23C89090'/%3E%3Cstop offset='1' stop-color='%23C89090'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='540' height='450' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.02'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+main button.btn {
+    /* display: flex;
+    flex-flow: row;
+    text-align: center;
+    margin-top: 5em;
+    flex: 1 1 auto; */
+    display: block;
+    margin: 1em auto;
+}
+
+.container-fluid {
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    flex: 0 1 auto;
+}
+
+header img {
+    width: 20%;
+    margin: 5em 0;
+}
+
+header img.logo-small {
+    width: 100px;
+}
+
+@media screen and (min-width: 600px) {
+    .container {
+        width: 400px;
+    }
+
+    header img {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        width: 600px;
+    }
+
+    header img {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .container {
+        width: 800px;
+    }
+
+    header img {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1000px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        width: 1200px;
+    }
+}
+
+section {
+    text-align: center;
+}
+
+section.bottom-half {
+    width: 96%;
+    height: 46%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 2%;
+}
+
+section.bottom-third {
+    width: 96%;
+    height: 29.33333%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 2%;
+}
+
+section.middle-third {
+    width: 96%;
+    height: 29.33333%;
+    position: absolute;
+    left: 0;
+    bottom: 33.33333%;
+    padding: 2%;
+}
+
+.question {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    background-color: #03a9f4;
+    border-radius: 0.5em;
+    padding: 1em;
+    box-shadow: 0 0.1rem 1rem 0.1rem rgba(50, 50, 50, 0.25);
+}
+
+section.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.timer {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 0.5em;
+    vertical-align: middle;
+    position: relative;
+    vertical-align: middle;
+}
+
+.timer .timer-full {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    border: 2px solid #380036;
+    position: absolute;
+    top: -2px;
+}
+
+.timer .timer-remaining {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: #380036;
+    position: absolute;
+    /* linear transition of width over 1s */
+    transition: 1s;
+    transition-timing-function: linear;
+    transition-duration: 1s;
+    min-width: 50px;
+}
+
+.timer p {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    color: #fff;
+    mix-blend-mode: difference;
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 8px;
+}
+
+#join-code:not(.join) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 35px;
+    margin-bottom: 0.5em;
+    box-shadow: 0 0.1rem 1rem 0.1rem rgba(50, 50, 50, 0.25);
+}
+
+#join-code h3 {
+    color: #380036;
+    font-size: 5em;
+    font-weight: bold;
+    text-align: center;
+    /* background-color: white;
+    border-radius: 35px; */
+    padding: 0.5em;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#join-code img {
+    padding: 1em;
+    /* background-color: white;
+    border-radius: 35px; */
+    margin: 1em;
+}
+
+.btn {
+    text-decoration: none;
+    position: relative;
+    border: none;
+    font-size: 24px;
+    font-family: inherit;
+    color: #fff;
+    width: 9em;
+    height: 3em;
+    line-height: 2em;
+    text-align: center;
+    background: linear-gradient(0deg, rgb(200, 0, 0), rgb(221, 56, 56));
+    background-size: 300%;
+    border-radius: 30px;
+    border: none;
+    z-index: 1;
+    margin: 1em;
+}
+
+/* .btn disabled */
+.btn.disabled {
+    /* greyscale filter */
+    filter: grayscale(100%);
+    cursor: not-allowed;
+}
+
+.btn.disabled:hover {
+    cursor: not-allowed;
+}
+
+.divider {
+    width: 300px;
+}
+
+.single-signin {
+    border: none;
+    background: none;
+    display: block;
+    margin: 0 auto;
+}
+
+.single-signin:hover {
+    cursor: pointer;
+}
+
+.grid>.btn {
+    width: 48%;
+    height: 5em;
+    margin-bottom: 1em;
+}
+
+.btn:hover {
+    animation: ani 8s linear infinite;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes ani {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 400%;
+    }
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(0deg, rgb(200, 0, 0), rgb(221, 56, 56));
+    background-size: 400%;
+    border-radius: 35px;
+    transition: 1s;
+}
+
+.btn:hover::before {
+    filter: blur(20px);
+}
+
+.btn:active {
+    background: linear-gradient(0deg, rgb(200, 0, 0), rgb(221, 56, 56));
+}
+
+a.btn {
+    padding: 10px 50px;
+}
+
+/* Join game code form */
+#digit-group input {
+    width: 60px;
+    height: 100px;
+    background-color: #e0e0da;
+    border: none;
+    border-radius: 10px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 48px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+    color: #380036;
+    margin: 0 2px;
+    text-transform: uppercase;
+}
+
+#digit-group input:focus {
+    outline: 2px solid #380036;
+}
+
+.filled-in {
+    outline: 2px solid #380036;
+}
+
+#player-list {
+    list-style-type: none;
+    background-color: white;
+    padding: 1em;
+    border-radius: 32px;
+    margin: 0;
+    box-shadow: 0 0.1rem 1rem 0.1rem rgba(50, 50, 50, 0.25);
+}
+
+#player-list li {
+    margin: 0 1em 0 1em;
+    padding: 1em;
+    color: #380036;
+    border-bottom: 1px solid #380036;
+}
+
+#player-list li:first-child {
+    font-weight: bold;
+    border-bottom: 2px solid #380036;
+}
+
+#player-list li:last-child {
+    border-bottom: none;
+}
+
+#join-code-header {
+    flex: 0 1 auto;
+}
+
+#join-code {
+    flex: 0 1 auto;
+}
+
+#actions {
+    flex: 0 1 auto;
+}
+
+#player-list {
+    display: flex;
+    flex-flow: column;
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
+
+footer {
+    flex: 0 1 50px;
+}
+
+#start-btn {
+    margin: 1em auto;
+    flex: 0 1 auto;
+}
+
+#join-code-header.hidden,
+#join-code.hidden,
+#actions.hidden,
+#player-list.hidden,
+#answers.hidden,
+#question.hidden,
+#start-btn.hidden,
+#timer.hidden,
+#game-options.hidden {
+    display: none;
+}
+
+#answers>button {
+    width: 40%;
+    min-height: 5em;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+
+
+
+#answers {
+    flex: 1 1 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+#question {
+    flex: 1 1 auto;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #380036;
+    background-color: white;
+    border-radius: 34px;
+    padding: 1em;
+    box-shadow: 0 0.1rem 1rem 0.1rem rgba(50, 50, 50, 0.25);
+}
+
+#timer {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 0.5em;
+    vertical-align: middle;
+    position: relative;
+}
+
+#timer .timer-full {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    border: 2px solid #380036;
+    position: absolute;
+    top: -2px;
+}
+
+#timer .timer-remaining {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background-color: #380036;
+    position: absolute;
+    transition: 1s;
+    transition-timing-function: linear;
+    transition-duration: 1s;
+    min-width: 50px;
+}
+
+#timer p {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    color: white;
+    mix-blend-mode: difference;
+    font-weight: bold;
+    font-size: 32px;
+    margin-top: 8px;
+}
+
+#game-options {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#game-options input {
+    margin-bottom: 1em;
+    width: 60%;
+    height: 0.1em;
+    line-height: 0.1em;
+    font-size: 2rem;
+    text-align: center;
+    color: #380036;
+    background-color: white;
+    border-radius: 34px;
+    padding: 1em;
+    box-shadow: 0 0.1rem 1rem 0.1rem rgba(50, 50, 50, 0.25);
+}
+
+#game-options input:focus {
+    outline: 2px solid #380036;
+}
+
+#game-options label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #380036;
+    text-align: center;
+}
+
+/* @media for mobile */
+@media screen and (max-width: 768px) {
+    #answers>button {
+        width: 100%;
+        min-height: 3em;
+        line-height: 1em;
+        margin-bottom: 1em;
+        font-size: 1.2rem;
+    }
+
+    #question {
+        font-size: 1rem;
+    }
+
+    header img {
+        width: 80%;
+    }
+}
+
+/* Form */
+
+#detail-capture {
+    width: 80%;
+    margin: 0 10%;
+    background-color: rgb(9, 14, 59);
+    padding: 2em;
+    box-sizing: border-box;
+    border-radius: 1em;
+}
+
+.mb {
+    margin-bottom: 2em;
+}
+
+.mb2 {
+    margin-bottom: 4em;
+}
+
+.floating-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    user-select: none;
+    z-index: 1500;
+}
+
+/* Hide the browser-specific focus styles */
+.floating-label-field {
+    color: rgba(44, 62, 80, .75);
+    border-width: 0;
+    z-index: 2000;
+    box-sizing: border-box;
+}
+
+.floating-label-field:focus {
+    outline: 0;
+    box-shadow: 0;
+}
+
+.floating-label-field::placeholder {
+    color: rgba(44, 62, 80, .5);
+}
+
+/* Make the label and field look identical on every browser */
+.floating-label,
+.floating-label-field {
+    font: inherit;
+    line-height: 1;
+
+    display: block;
+
+    width: 100%;
+}
+
+.floating-label-field,
+.floating-label-wrap {
+    position: relative;
+}
+
+/* Input Style #1 */
+.floating-label-field--s1 {
+    transition: border-color .25s ease-in-out;
+
+    color: rgba(255, 255, 255, .75);
+    border-bottom: 3px solid rgba(255, 255, 255, .05);
+    background-color: transparent;
+}
+
+.floating-label-field--s1+.floating-label {
+    transition: transform .25s, opacity .25s ease-in-out;
+    transform-origin: 0 0;
+
+    opacity: .5;
+}
+
+.floating-label-field--s1:focus,
+.floating-label-field--s1:not(:placeholder-shown) {
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.floating-label-field--s1:focus+.floating-label,
+.floating-label-field--s1:not(:placeholder-shown)+.floating-label {
+    transform: translate(.25em, -30%) scale(.8);
+
+    opacity: .25;
+}
+
+.floating-label-field--s1:valid:not(:placeholder-shown) {
+    border-color: rgba(46, 213, 115, .3);
+}
+
+.floating-label-field--s1:invalid {
+    border-color: rgba(255, 71, 87, .3);
+}
+
+/* Input Style #2 */
+.floating-label-field--s2 {
+    transition: background-color .25s ease-in-out;
+
+    border: 2px solid #fff;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.floating-label-field--s2+.floating-label {
+    visibility: hidden;
+
+    transition: transform .25s, visibility .5s, opacity .5s ease-in-out;
+
+    opacity: 0;
+}
+
+.floating-label-field--s2:focus+.floating-label,
+.floating-label-field--s2:not(:placeholder-shown)+.floating-label {
+    visibility: visible;
+
+    transform: translateY(-80%);
+
+    opacity: .5;
+}
+
+.floating-label-field--s2:valid:not(:placeholder-shown) {
+    border-color: #adefc8;
+    background-color: #adefc8;
+}
+
+.floating-label-field--s2:invalid {
+    border-color: #ffe0e3;
+    background-color: #ffe0e3;
+}
+
+.floating-label-field--s3 {
+    padding: 1.5em;
+
+    transition: border-color .25s ease-in-out;
+
+    color: rgba(255, 255, 255, .75);
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.floating-label-field--s3+.floating-label {
+    position: absolute;
+    top: .75em;
+    left: .75em;
+
+    display: inline-block;
+
+    width: auto;
+    margin: 0;
+    padding: .75em;
+
+    transition: transform .25s, opacity .25s, padding .25s ease-in-out;
+    transform-origin: 0 0;
+
+    color: rgba(255, 255, 255, .5);
+}
+
+.floating-label-field--s3:focus,
+.floating-label-field--s3:not(:placeholder-shown) {
+    border-color: rgba(255, 255, 255, .1);
+}
+
+.floating-label-field--s3:focus+.floating-label,
+.floating-label-field--s3:not(:placeholder-shown)+.floating-label {
+    z-index: 2500;
+
+    padding: .75em;
+
+    transform: translate(0, -2em) scale(.9);
+
+    color: rgba(255, 255, 255, .25);
+    background-color: rgb(9, 14, 59);
+}
+
+/* Common Styles */
+/* Identical inputs on all browsers */
+.floating-label-field--s1:not(textarea),
+.floating-label-field--s2:not(textarea),
+.floating-label-field--s3:not(textarea) {
+    max-height: 4em;
+}
+
+.floating-label-field--s1,
+.floating-label-field--s1+.floating-label,
+.floating-label-field--s2,
+.floating-label-field--s2+.floating-label {
+    padding: 1.5em;
+}
+
+.floating-label-field--s1+.floating-label,
+.floating-label-field--s2+.floating-label {
+    z-index: 1500;
+}
+
+.floating-label-field--s1::placeholder,
+.floating-label-field--s3::placeholder {
+    color: transparent;
+}
+
+.form-control {
+    font-family: system-ui, sans-serif;
+    /* font-size: 2rem; */
+    /* font-weight: bold; */
+    padding: 1em;
+    border-radius: 5px;
+    line-height: 1.1;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em;
+    color: rgba(255, 255, 255, 0.5);
+    text-align: left;
+}
+
+.form-control+.form-control {
+    margin-top: 1em;
+}
+
+.form-control--disabled {
+    color: grey;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgb(9, 14, 59);
+    margin: 0;
+    margin-top: 0.25em;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em !important;
+    height: 1.15em !important;
+    border: 0.15em solid rgba(255, 255, 255, 0.5);
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em rgba(255, 255, 255, 0.5);
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+    box-shadow: inset 1em 1em #eee;
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid #eee;
+    outline-offset: max(2px, 0.15em);
+}
+
+input[type="checkbox"]:disabled {
+    --form-control-color: var(--form-control-disabled);
+    color: grey;
+    cursor: not-allowed;
+}
+
+#error-message {
+    color: red;
+}
+
+#consent-container span {
+    font-style: italic;
+    font-weight: 100;
+    line-height: 1.5em;
+}
+
+#consent-container span strong {
+    font-style: normal;
+}

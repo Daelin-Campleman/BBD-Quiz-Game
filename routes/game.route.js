@@ -61,4 +61,16 @@ gameRouter.post("/user/register", async (req, res) => {
     }
 });
 
+gameRouter.post("/auth", async (req, res) => {
+    if(req.body.password === "Lucky@BBD"){
+        res.status(200).json({
+            "result" : "success"
+        });
+    } else {
+        res.status(400).json({
+            "result" : "failed"
+        });
+    }
+});
+
 export default gameRouter;
