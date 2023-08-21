@@ -1,9 +1,3 @@
-/**
- * See https://the-trivia-api.com/docs/v2/#tag/Questions/operation/getRandomQuestions for explanation of each param.
- * 
- */
-import fetch from "node-fetch";
-import { config } from "dotenv";
 import fs from 'fs'
 
 
@@ -13,11 +7,10 @@ import fs from 'fs'
  * @returns {JSON}
  * 
  * *
- * Fetches questions from external API
+ * Fetches questions from questions.json
  * 
  */
 function getQuestions(gameOptions) {
-    console.log("Getting questions");
     const defaultOptions = {
         questionsPerRound: 5,
         numberOfRounds: 1,
@@ -28,7 +21,6 @@ function getQuestions(gameOptions) {
     let finalGameOptions = {...defaultOptions, ...gameOptions};
     let rawdata = fs.readFileSync('./questions.json');
     let data = JSON.parse(rawdata);
-    console.log(data.length);
     let mappedData = getRandomQuestions(data, finalGameOptions.questionsPerRound * finalGameOptions.numberOfRounds);
 
     return mappedData;
@@ -47,4 +39,4 @@ function getRandomQuestions(questions, numQuestions) {
     return randomQ;
 }
 
-export { getQuestions};
+export { getQuestions };

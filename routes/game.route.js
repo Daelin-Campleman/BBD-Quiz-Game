@@ -48,8 +48,6 @@ gameRouter.post("/user/register", async (req, res) => {
         const response = await insertUserRequest(req.body);
         const userId = response[0].get("user_id");
 
-        console.log(userId);
-
         res.status(200).json({
             result : "success",
             id : userId

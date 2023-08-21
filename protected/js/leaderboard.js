@@ -1,8 +1,6 @@
 function loadLeaderBoard(items) {
     const table = document.getElementById("results");   
     let order = 0;
-
-    console.log(items);
     
     // Loop through
     for (let i = 0; i < items.length; i++) {
@@ -22,10 +20,10 @@ function loadLeaderBoard(items) {
         name.className = "name";
         points.className = "points";
         number.className = "number";
-        
-        name.innerHTML = items[i].name;
-        points.innerHTML = items[i].score;
-        number.innerHTML = order+1;
+
+        name.innerText = items[i].name;
+        points.innerText = items[i].score;
+        number.innerText = order+1;
     }
 }
 
