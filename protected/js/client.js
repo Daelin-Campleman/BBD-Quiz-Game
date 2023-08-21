@@ -66,10 +66,11 @@ socket.onopen = () => {
         }).then((response) => {
             return response.json();
         }).then((data) => {
-            if(!data.success){
-                window.location = "/";
-            } else {
+            console.log(data);
+            if(data.success){
                 showGameOptions();
+            } else {
+                window.location = "/";
             }
         })
         
