@@ -12,7 +12,7 @@ if(!localStorage.getItem("alreadyRegistered") || localStorage.getItem("alreadyRe
             return response.json();
         }).then((data) => {
             if(!data.success){
-                window.location = "/home/?create";
+                window.location = "/";
             }
         })
     } else {
