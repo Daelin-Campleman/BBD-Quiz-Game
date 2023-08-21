@@ -36,13 +36,21 @@
                 <label for="last-name" class="floating-label">Surname</label>
             </div>
             <div class="floating-label-wrap mb">
-                <input type="text" class="floating-label-field floating-label-field--s3" id="degree" name="degree"
-                    placeholder="E.g. BSc Computer Science" required>
+                <!-- <input type="text" class="floating-label-field floating-label-field--s3" id="degree" name="degree"
+                    placeholder="E.g. BSc Computer Science" required> -->
+                    <select class="floating-label-field floating-label-field--s3" id="degree" name="degree" required>
+                        <option value="" selected disabled>Select Degree / Program</option>
+                        <option disabled></option>
+                    </select>
                 <label for="degree" class="floating-label">Current Degree / Program</label>
             </div>
             <div class="floating-label-wrap mb2">
-                <input type="text" class="floating-label-field floating-label-field--s3" id="year" name="year"
-                    placeholder="E.g. 2nd Year" required>
+                <!-- <input type="text" class="floating-label-field floating-label-field--s3" id="year" name="year"
+                    placeholder="E.g. 2nd Year" required> -->
+                <select class="floating-label-field floating-label-field--s3" id="year" name="year" required>
+                    <option value="" selected disabled>Select Current Year of Study</option>
+                    <option disabled></option>
+                </select>
                 <label for="year" class="floating-label">Current Year of Study</label>
             </div>
             <div class="floating-label-wrap mb">
@@ -55,15 +63,17 @@
                     placeholder="E.g. 0821234567" required>
                 <label for="phone" class="floating-label">Phone Number</label>
             </div>
-            <label class="form-control mb2" id="consent-container">
-                <input type="checkbox" name="checkbox" id="consent" />
-                <span><strong>I understand and agree:</strong> By checking this box, I hereby grant consent to BBD to collect and store the details provided above. I understand and acknowledge that BBD may use these details to contact me in the future. I am aware that I have the right to withdraw this consent at any time by contacting BBD.</span>
+            <label class="form-control mb" id="consent-container">
+                <input type="checkbox" name="checkbox" id="consent" required />
+                <span>I agree to share my information with you and understand it will be used as described in BBD's Privacy Policy</span>
             </label>
+
+            <p style="text-align: left; margin-left: 1em;" class="mb2"><a href="https://bbdsoftware.com/privacy-policy/" target="_blank" style="color: rgba(255, 255, 255, 0.5);">Privacy Policy</a></p>
 
             <!-- <p id="error-message"></p> -->
 
             <section class="btns" style="display: flex; align-items: center; justify-content: start;">
-                <input type="reset" class="btn" value="Clear" style="background: none; border: solid 1px;">
+                <input type="reset" class="btn" value="Clear" style="background: none; border: solid 1px;" id="clearFormBtn">
                 <button type="button" class="btn" onclick="registerToTakePart()" style="width: 100%;">Register</button>
             </section>
         </form>

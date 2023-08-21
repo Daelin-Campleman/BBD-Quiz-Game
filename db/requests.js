@@ -35,7 +35,8 @@ export function saveGameLeaderBoardRequest(gameId, players) {
             fields: {
                 game_id: gameId,
                 user_id: parseInt(players[i].id),
-                score: players[i].score
+                score: players[i].calculatedScore,
+                // correct: players[i].score
             }
         });
     }

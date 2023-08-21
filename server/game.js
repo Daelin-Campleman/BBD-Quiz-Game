@@ -17,8 +17,11 @@ function Player(ws, name, id, isHost, isOriginalHost = false) {
   this.name = name;
   this.id = id;
   this.score = 0;
+  this.calculatedScore = 0;
   this.currentAnswer = "";
   this.answerHistory = [];
+  this.currentMultiplier = 0;
+  this.multiplierHistory = [];
   this.isHost = isHost;
   this.isOriginalHost = isOriginalHost;
 }
@@ -100,9 +103,11 @@ export function clientAnswer(client, options) {
   const game = liveGames.get(options['joinCode']);
   const answer = options['answer'];
   const user = options['player'];
+  const multiplier = options['multiplier'];
   const player = game.players.find(p => p.id === user['id'])
   if (player != undefined) {
     player.currentAnswer = answer;
+    player.currentMultiplier = multiplier;
   }
   client.send(JSON.stringify({
     message: "Answer received"
@@ -247,10 +252,13 @@ export function questionOver(joinCode) {
   players.forEach(p => {
     if (p.currentAnswer.trim().toUpperCase() === correctAnswer) {
       p.score++;
+      p.calculatedScore += p.currentMultiplier;
       p.answerHistory.push(true);
     } else {
       p.answerHistory.push(false);
     }
+    p.multiplierHistory.push(p.currentMultiplier);
+    p.currentMultiplier = 0;
   });
   
   if (game.currentQuestion > game.questionsPerRound) {
@@ -316,9 +324,11 @@ function endGame(joinCode) {
   const playerDetails = players.map((p) => {
     return {
       name: p.name,
-      score: p.score
+      score: p.score,
+      calculatedScore: p.calculatedScore
     }
   });
+  
   players.forEach(p => {
     p.ws.send(JSON.stringify({
       requestType: "GAME OVER",

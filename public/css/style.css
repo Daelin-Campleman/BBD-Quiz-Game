@@ -522,6 +522,10 @@ footer {
     header img {
         width: 80%;
     }
+
+    #clearFormBtn {
+        display: none;
+    }
 }
 
 /* Form */
@@ -582,6 +586,12 @@ footer {
 .floating-label-field,
 .floating-label-wrap {
     position: relative;
+}
+
+.floating-label-wrap select {
+    height: 100%;
+    background-color: rgb(9, 14, 59);
+    padding: 1.3em;
 }
 
 /* Input Style #1 */
@@ -799,11 +809,15 @@ input[type="checkbox"]:disabled {
 }
 
 #consent-container span {
-    font-style: italic;
-    font-weight: 100;
     line-height: 1.5em;
 }
 
 #consent-container span strong {
     font-style: normal;
+}
+
+input:required + label::after, select:required + label::after, input:required + span::after {
+    content: '*';
+    color: red;
+    margin-left: 0.5em;
 }

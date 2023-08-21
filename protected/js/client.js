@@ -34,6 +34,8 @@ const socket = new WebSocket(wsURL);
 
 let timer;
 let joinCode = "";
+let startQuestionTime;
+let endQuestionTime;
 
 async function fetchName() {
     return localStorage.getItem("firstName");
@@ -66,7 +68,6 @@ socket.onopen = () => {
         }).then((response) => {
             return response.json();
         }).then((data) => {
-            console.log(data);
             if(data.success){
                 showGameOptions();
             } else {
@@ -220,6 +221,7 @@ function handleRoundOver(msg) {
 
 function handleGameOver(msg) {
     let playerDetails = msg['playerDetails'];
+    
     localStorage.setItem("playerDetails", playerDetails);
     window.location = "/home/leaderboard?gameId=" + msg['gameId'];
 }
@@ -315,11 +317,16 @@ async function joinGame() {
 
 async function sendAnswer(answer) {
     let user = await fetchPlayer();
+    let answeredIn = endQuestionTime - new Date();
+    let total = endQuestionTime - startQuestionTime;
+    let multiplier = Math.round(answeredIn / total * 1000);
+    
     socket.send(JSON.stringify({
         answer: answer,
         requestType: "ANSWER",
         joinCode: joinCode,
-        player: user
+        player: user,
+        multiplier: multiplier
     }));
 }
 
@@ -437,7 +444,9 @@ function startTimer(time) {
     document.getElementById("timer").classList.remove("hidden");
 
     let deadline = new Date();
+    startQuestionTime = new Date();
     deadline.setSeconds(deadline.getSeconds() + time / 1000);
+    endQuestionTime = deadline;
 
     timer = setInterval(() => {
         let now = new Date();
