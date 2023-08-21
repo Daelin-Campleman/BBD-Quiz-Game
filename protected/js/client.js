@@ -55,7 +55,24 @@ socket.onopen = () => {
     let join = urlParams.get('join');
 
     if (create != null && join == null && localStorage.getItem("admin")) {
-        showGameOptions();
+        fetch("/game/auth", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                password: localStorage.getItem("admin")
+            })
+        }).then((response) => {
+            return response.json();
+        }).then((data) => {
+            if(!data.success){
+                window.location = "/";
+            } else {
+                showGameOptions();
+            }
+        })
+        
     } else if (create == null && join != null) {
         document.getElementById('join-code-header').textContent = "Enter the game pin to join";
 
