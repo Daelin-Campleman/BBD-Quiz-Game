@@ -29,7 +29,7 @@ process.on("unhandledRejection", (err) => {
 
 server.listen(PORT, () => {
   DEBUG(
-    `server running on http://localhost:${PORT}/auth/login in ${process.env.NODE_ENV} mode`
+    `server running on http://localhost:${PORT} in ${process.env.NODE_ENV} mode`
     );
   });
   

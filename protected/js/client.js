@@ -38,8 +38,6 @@ socket.onopen = () => {
     let create = urlParams.get('create');
     let join = urlParams.get('join');
 
-    console.log("Joined");
-
     if (create != null && join == null) {
         showGameOptions();
     } else if (create == null && join != null) {
@@ -72,9 +70,6 @@ socket.onopen = () => {
 
 socket.onmessage = async (event) => {
     let response = JSON.parse(event.data);
-
-    console.log(event);
-    console.log(response);
 
     switch (response['requestType']) {
         case "JOIN":

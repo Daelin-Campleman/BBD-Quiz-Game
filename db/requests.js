@@ -44,9 +44,6 @@ export function getGameLeaderboardRequest(gameID) {
 
 export function saveGameLeaderBoardRequest(gameId, players) {
 
-    console.log("filtered:");
-    console.log(players);
-
     let params = [{
         name: "gameId",
         type: TYPES.BigInt,
