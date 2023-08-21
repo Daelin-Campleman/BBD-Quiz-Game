@@ -40,6 +40,8 @@
             let pass = document.getElementById("password").value;
 
             localStorage.setItem("admin", pass);
+            localStorage.setItem("firstName", "BBD Admin");
+            localStorage.setItem("id", -1)
 
             window.location.href = "/home";
         }
