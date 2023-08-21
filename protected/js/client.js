@@ -54,7 +54,7 @@ socket.onopen = () => {
     let create = urlParams.get('create');
     let join = urlParams.get('join');
 
-    if (create != null && join == null) {
+    if (create != null && join == null && localStorage.getItem("admin")) {
         showGameOptions();
     } else if (create == null && join != null) {
         document.getElementById('join-code-header').textContent = "Enter the game pin to join";

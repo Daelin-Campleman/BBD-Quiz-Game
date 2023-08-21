@@ -22,13 +22,18 @@
 
 
     <main>
-        <button class="btn" onclick="goTo('./game?create')">Create Game</button>
+        <button class="btn" onclick="goTo('./game?create')" id="createBtnToRemove">Create Game</button>
         <button class="btn" onclick="goTo('./game?join')">Join Game</button>
     </main>
 
     <script>
         function goTo(url) {
             window.location = url;
+        }
+
+        if(!localStorage.getItem("admin")){
+            // remove createBtnToRemove
+            document.getElementById("createBtnToRemove").remove();
         }
     </script>
 
