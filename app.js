@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from 'url';
 
 import gameRouter from "./routes/game.route.js"
+import Airtable from "airtable";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,6 +18,8 @@ if (["development", "production"].includes(process.env.NODE_ENV)) {
   app.use(logger("dev"));
 }
 app.use(logger("dev"));
+
+Airtable.configure({ apiKey: process.env.AIRTABLE_API_KEY });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

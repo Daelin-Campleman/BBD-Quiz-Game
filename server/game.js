@@ -42,7 +42,9 @@ export async function createGame(startingPlayer, gameOptions) {
 
   const joinCode = getRandomCode();
   let result = await createGameRequest(joinCode);
-  let gameId = result[0].get("game_id");
+  result = await result.json();
+
+  let gameId = result.fields.game_id;
 
   let user = gameOptions['player'];
   let questions = getQuestions(gameOptions);
@@ -348,8 +350,9 @@ async function sendToDB(joinCode, gameId) {
   let players = game.players;
 
   players = players.filter(p => !p.isHost);
-  await saveGameLeaderBoardRequest(gameId, players);
-  await savePlayerContactDetailsRequest(playerContactDetailsStore);
+  let result = await saveGameLeaderBoardRequest(gameId, players);
+  result = await result.json();
+  //await savePlayerContactDetailsRequest(playerContactDetailsStore);
 }
 
 function isEmpty(answer){

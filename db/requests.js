@@ -1,87 +1,52 @@
 import { TYPES } from "tedious";
 import execSQLRequest from "./quizdb.js";
+import { runQuery } from "./airTableDB.js";
 
 export function createGameRequest(joinCode) {
-
-    const sql = `
-        INSERT INTO dbo.game (join_code)
-        OUTPUT INSERTED.game_id
-        VALUES (@joinCode);
-    `;
-
-    const params = [
-        {
-            name: "joinCode",
-            type: TYPES.VarChar,
-            value: joinCode
+    const fields = {
+        fields: {
+            join_code: joinCode
         }
-    ];
+    }
 
-    return execSQLRequest(sql, params);
+    const query = {
+        url: TablesNames.Game,
+        method: "POST",
+        data: fields
+    }
+
+    return runQuery(query);
 }
 
 export function getGameLeaderboardRequest(gameID) {
+    const query = {
+        url: TablesNames.Leaderboard + "?filterByFormula=game_id=" + gameID,
+        method: "GET"
+    }
 
-    let sql = `
-    SELECT u.first_name, s.score
-    FROM [user] u
-    INNER JOIN game_score s
-    ON u.user_id = s.user_id
-    WHERE s.game_id = @gameID
-    ORDER BY s.score DESC
-    `
-
-    const params = [
-        {
-            name: "gameID",
-            type: TYPES.BigInt,
-            value: gameID
-        }
-    ];
-
-    return  execSQLRequest(sql, params);
+    return runQuery(query);
 }
 
 export function saveGameLeaderBoardRequest(gameId, players) {
-
-    let params = [{
-        name: "gameId",
-        type: TYPES.BigInt,
-        value: gameId
-    }];
-
-    let values = '';
+    const records = [];
 
     for (let i=0; i<players.length; i++) {
-
-        values += `(@gameId, @user_id${i}, @score${i}),`
-
-        params.push(
-            {
-                name: `user_id${i}`,
-                type: TYPES.BigInt,
-                value: players[i].id
-            },
-            {
-                name: `score${i}`,
-                type: TYPES.Int,
-                value: players[i].score
+        records.push({
+            fields: {
+                game_id: gameId,
+                user_id: parseInt(players[i].id),
+                score: players[i].score
             }
-        );
+        });
     }
 
-    values = values.substring(0, values.length - 1);
+    const query = {
+        url: TablesNames.Leaderboard,
+        method: "POST",
+        data: {records: records}
+    }
 
-    let sql = `
-        INSERT INTO game_score(
-            game_id,
-            user_id,
-            score
-        )
-        VALUES ${values};
-    `;
-
-    return execSQLRequest(sql, params);
+    return runQuery(query);
 }
 
 export function savePlayerContactDetailsRequest(playerDetails) {
@@ -114,60 +79,25 @@ export function selectFederatedCredentialsByIdRequest(provider, subject) {
 
 export function insertUserRequest(userDetails){
 
-    const sql = `
-        INSERT INTO [dbo].[user] (
-            [first_name],
-            [last_name],
-            [degree],
-            [year],
-            [email],
-            [phone]
-        ) 
-        OUTPUT inserted.[user_id]
-        VALUES (
-            @first_name,
-            @last_name,
-            @degree,
-            @year,
-            @email,
-            @phone
-        );
-    `;
+    const fields = {
+        fields: {
+            first_name: userDetails.firstName,
+            last_name: userDetails.surname,
+            degree: userDetails.degree,
+            year: userDetails.year,
+            email: userDetails.email,
+            phone: userDetails.phone
+        }
+    }
 
-    const params = [
-        {
-            name: "first_name",
-            type: TYPES.VarChar,
-            value: userDetails.firstName
-        },
-        {
-            name: "last_name",
-            type: TYPES.VarChar,
-            value: userDetails.surname
-        },
-        {
-            name: "degree",
-            type: TYPES.VarChar,
-            value: userDetails.degree
-        },
-        {
-            name: "year",
-            type: TYPES.VarChar,
-            value: userDetails.year
-        },
-        {
-            name: "email",
-            type: TYPES.VarChar,
-            value: userDetails.email
-        },
-        {
-            name: "phone",
-            type: TYPES.VarChar,
-            value: userDetails.phone
-        },
-    ];
+    const query = {
+        url: TablesNames.User,
+        method: "POST",
+        data: fields
+    }
 
-    return execSQLRequest(sql, params);
+    return runQuery(query);
+
 }
 
 export function insertFederatedCredentialsRequest(userId, provider, subject){
@@ -205,4 +135,19 @@ export function insertFederatedCredentialsRequest(userId, provider, subject){
     ];
 
     return execSQLRequest(sql, params);
+}
+
+export function getUSerByID(usrId) {
+    const query = {
+        url: TablesNames.User + "?filterByFormula=user_id=" + usrId,
+        method: "GET"
+    }
+
+    return runQuery(query);
+}
+
+const TablesNames = {
+    User: "tblO9gajjRqKapanb",
+    Game: "tbllBvAWA63F6vTiu",
+    Leaderboard: "tbl7mRjmejWccQ4Sv" 
 }
