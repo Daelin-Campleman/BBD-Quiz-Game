@@ -25,5 +25,6 @@ app.use(errorHandler);
 app.use('/game', gameRouter)
 app.use('/',express.static(__dirname + '/public'));
 app.use('/home',express.static(__dirname + '/protected'))
+app.use('/admin',express.static(__dirname + '/admin'))
 
 export default app;

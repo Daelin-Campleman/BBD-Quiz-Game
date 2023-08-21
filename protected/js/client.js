@@ -1,16 +1,32 @@
 if(!localStorage.getItem("alreadyRegistered") || localStorage.getItem("alreadyRegistered") != "true"){
-    // get url param "join"
-    let urlParams = new URLSearchParams(window.location.search);
-    let join = urlParams.get('join');
-
-    // check if it exists
-    if (join != null) {
-        window.location = "/?join=" + join;
+    if(localStorage.getItem("admin")){
+        fetch("/game/auth", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                password: localStorage.getItem("admin")
+            })
+        }).then((response) => {
+            return response.json();
+        }).then((data) => {
+            if(!data.success){
+                window.location = "/";
+            }
+        })
     } else {
-        window.location = "/";
-    }
+        // get url param "join"
+        let urlParams = new URLSearchParams(window.location.search);
+        let join = urlParams.get('join');
 
-    
+        // check if it exists
+        if (join != null) {
+            window.location = "/?join=" + join;
+        } else {
+            window.location = "/";
+        }
+    }
 }
 
 const wsURL = window.location.host.includes("localhost") ? `ws://${window.location.host}/` : `wss://${window.location.host}/`;
