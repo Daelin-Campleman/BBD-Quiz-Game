@@ -87,7 +87,8 @@ gameRouter.post("/user/register", async (req, res) => {
 });
 
 gameRouter.post("/auth", async (req, res) => {
-    if(req.body.password === process.env.ADMIN_PASSWORD || req.body.password === "letmein"){
+    const checkPass = process.env.ADMIN_PASSWORD || "Lucky@BBD";
+    if(req.body.password === checkPass){
         res.status(200).json({
             "success" : true
         });
