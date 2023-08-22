@@ -592,6 +592,7 @@ footer {
     height: 100%;
     background-color: rgb(9, 14, 59);
     padding: 1.3em;
+    -webkit-appearance: none;
 }
 
 /* Input Style #1 */
@@ -806,17 +807,6 @@ input[type="checkbox"]:disabled {
 
 input.invalid, select.invalid {
     border-color: red !important;
-}
-
-.safari select {
-    position: relative;
-    top: 0em;
-    height: 4em;
-}
-
-.safari select+label {
-    padding-bottom: 0em !important;
-    padding-top: 0em !important;
 }
 
 #error-message {
