@@ -1,5 +1,3 @@
-import { TYPES } from "tedious";
-import execSQLRequest from "./quizdb.js";
 import { runQuery } from "./airTableDB.js";
 
 export function createGameRequest(joinCode) {
@@ -54,30 +52,6 @@ export function savePlayerContactDetailsRequest(playerDetails) {
     return Promise.resolve()
 }
 
-export function selectFederatedCredentialsByIdRequest(provider, subject) {
-
-    const sql = `
-        SELECT [user_id]
-        FROM [dbo].[federated_credentials]
-        WHERE [provider] = @provider and [subject] = @subject;
-    `;
-
-    const params = [
-        {
-            name: "provider",
-            type: TYPES.VarChar,
-            value: provider
-        },
-        {
-            name: "subject",
-            type: TYPES.VarChar,
-            value: subject
-        }
-    ];
-
-    return execSQLRequest(sql, params);
-}
-
 export function insertUserRequest(userDetails){
 
     const fields = {
@@ -98,44 +72,6 @@ export function insertUserRequest(userDetails){
     }
 
     return runQuery(query);
-
-}
-
-export function insertFederatedCredentialsRequest(userId, provider, subject){
-    
-    const sql = `
-        INSERT INTO [dbo].[federated_credentials] (
-            [user_id],
-            [provider],
-            [subject]
-        )
-        OUTPUT inserted.[federated_credentials_id]
-        VALUES (
-            @userId,
-            @provider,
-            @subject
-        );
-    `;
-
-    const params = [
-        {
-            name: "userId",
-            type: TYPES.BigInt,
-            value: userId
-        },
-        {
-            name: "provider",
-            type: TYPES.VarChar,
-            value: provider
-        },
-        {
-            name: "subject",
-            type: TYPES.VarChar,
-            value: subject
-        }
-    ];
-
-    return execSQLRequest(sql, params);
 }
 
 export function getUSerByID(usrId) {
