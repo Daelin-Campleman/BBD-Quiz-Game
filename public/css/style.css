@@ -808,6 +808,17 @@ input.invalid, select.invalid {
     border-color: red !important;
 }
 
+.safari select {
+    position: relative;
+    top: 0em;
+    height: 4em;
+}
+
+.safari select+label {
+    padding-bottom: 0em !important;
+    padding-top: 0em !important;
+}
+
 #error-message {
     color: red;
 }
