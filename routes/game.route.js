@@ -70,15 +70,51 @@ gameRouter.get("/leaderboard/all", async (req, res) => {
 
 gameRouter.post("/user/register", async (req, res) => {
     try{
+      // https://stackoverflow.com/a/9204568
+      let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let phone_regex = /^\d{10}|^\+\d{11}/;
+      let isWrong = false;
+      const wrongFields = [];
+      if (!email_regex.test(req.body.email)) {
+        isWrong = true;
+        wrongFields = [...wrongFields, "email"];
+      }
+      if (!phone_regex.test(req.body.phone)) {
+        isWrong = true;
+        wrongFields = [...wrongFields, "phone"];
+      }
+      if (req.body.firstName.length <= 1) {
+        isWrong = true;
+        wrongFields = [...wrongFields, "first-name"];
+      }
+      if (req.body.surname.length <= 1) {
+        isWrong = true;
+        wrongFields = [...wrongFields, "last-name"];
+      }
+      if (req.body.degree.length <= 1) {
+        isWrong = true;
+        wrongFields = [...wrongFields, "degree"];
+      }
+      if (req.body.year.length <= 1) {
+        isWrong = true;
+        wrongFields = [...wrongFields, "year"];
+      }
+
+      if (isWrong) {
+        res.status(400).json({
+          result: wrongFields,
+        });
+      } else {
         let response = await insertUserRequest(req.body);
         response = await response.json();
 
         const userId = response.fields.user_id;
 
         res.status(200).json({
-            result : "success",
-            id : userId
+          result: "success",
+          id: userId,
         });
+      }
     } catch(e){
         res.status(400).json({
             "result" : e
