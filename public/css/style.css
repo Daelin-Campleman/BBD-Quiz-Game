@@ -804,6 +804,10 @@ input[type="checkbox"]:disabled {
     cursor: not-allowed;
 }
 
+input.invalid, select.invalid {
+    border-color: red !important;
+}
+
 #error-message {
     color: red;
 }

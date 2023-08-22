@@ -70,7 +70,7 @@
 
             <p style="text-align: left; margin-left: 1em;" class="mb2"><a href="https://bbdsoftware.com/privacy-policy/" target="_blank" style="color: rgba(255, 255, 255, 0.5);">Privacy Policy</a></p>
 
-            <!-- <p id="error-message"></p> -->
+            <p id="error-message"></p>
 
             <section class="btns" style="display: flex; align-items: center; justify-content: start;">
                 <input type="reset" class="btn" value="Clear" style="background: none; border: solid 1px;" id="clearFormBtn">
@@ -108,61 +108,13 @@
             let valid = true;
 
             if (!consent) {
-                // document.getElementById("error-message").textContent = "Please agree to the terms and conditions";
                 document.getElementById("consent-container").style.border = "solid 1px red";
                 valid = false;
             } else {
-                // document.getElementById("error-message").textContent = "";
                 document.getElementById("consent-container").style.border = "none";
             }
 
-            if (firstName == "") {
-                document.getElementById("first-name").style.borderColor = "red";
-                valid = false;
-            } else {
-                document.getElementById("first-name").style.borderColor = "rgba(255, 255, 255, 0.1)";
-            }
-            if (lastName == "") {
-                document.getElementById("last-name").style.borderColor = "red";
-                valid = false;
-            } else {
-                document.getElementById("last-name").style.borderColor = "rgba(255, 255, 255, 0.1)";
-            }
-            if (degree == "") {
-                document.getElementById("degree").style.borderColor = "red";
-                valid = false;
-            } else {
-                document.getElementById("degree").style.borderColor = "rgba(255, 255, 255, 0.1)";
-            }
-            if (year == "") {
-                document.getElementById("year").style.borderColor = "red";
-                valid = false;
-            } else {
-                document.getElementById("year").style.borderColor = "rgba(255, 255, 255, 0.1)";
-            }
-            if (email == "") {
-                document.getElementById("email").style.borderColor = "red";
-                valid = false;
-            } else {
-                document.getElementById("email").style.borderColor = "rgba(255, 255, 255, 0.1)";
-            }
-            if (phone == "") {
-                document.getElementById("phone").style.borderColor = "red";
-                valid = false;
-            } else {
-                document.getElementById("phone").style.borderColor = "rgba(255, 255, 255, 0.1)";
-            }
-
             if (valid) {
-                localStorage.setItem("firstName", firstName);
-                localStorage.setItem("lastName", lastName);
-                localStorage.setItem("degree", degree);
-                localStorage.setItem("year", year);
-                localStorage.setItem("email", email);
-                localStorage.setItem("phone", phone);
-                localStorage.setItem("consent", consent);
-                
-                
                 const user = {
                     firstName : firstName,
                     surname : lastName,
@@ -176,17 +128,25 @@
                 let result = await fetch("/game/user/register", {
                     method: "POST",
                     headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(user)
                 });
 
                 result = await result.json();
 
-                if(result.result == "success"){
+                if(result.result === 'success'){
                     localStorage.setItem("alreadyRegistered", true);
                     localStorage.setItem("id", result.id);
+
+                    localStorage.setItem("firstName", firstName);
+                    localStorage.setItem("lastName", lastName);
+                    localStorage.setItem("degree", degree);
+                    localStorage.setItem("year", year);
+                    localStorage.setItem("email", email);
+                    localStorage.setItem("phone", phone);
+                    localStorage.setItem("consent", consent);
 
                     // get url param "join"
                     let urlParams = new URLSearchParams(window.location.search);
@@ -199,8 +159,17 @@
                         window.location = "/home";
                     }
                 } else {
-                    console.log("Error registering...");
-                    console.log(result);
+                    let incorrectFields = result.result;
+
+                    let inputs = document.querySelectorAll("input, select");
+
+                    [...inputs].forEach(input => {
+                        input.classList.remove("invalid");
+                    });
+
+                    incorrectFields.forEach(field => {
+                        document.getElementById(field).classList.add("invalid");
+                    });
                 }
             }
         }
