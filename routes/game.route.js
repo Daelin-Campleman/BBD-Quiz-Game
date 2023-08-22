@@ -22,7 +22,7 @@ gameRouter.get("/leaderboard", async (req, res) => {
         user = user.records[0];
         
         return {
-            "name" : user.fields.first_name,
+            "name" : user.fields.first_name + " " + user.fields.last_name,
             "score" : score.fields.score
         }
     }));

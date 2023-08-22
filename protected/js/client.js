@@ -38,12 +38,12 @@ let startQuestionTime;
 let endQuestionTime;
 
 async function fetchName() {
-    return localStorage.getItem("firstName");
+    return localStorage.getItem("firstName") + " " + localStorage.getItem("lastName");
 }
 
 async function fetchPlayer() {
     const data = {
-        name: localStorage.getItem("firstName"),
+        name: localStorage.getItem("firstName") + " " + localStorage.getItem("lastName"),
         id: localStorage.getItem("id")
     }
     return data;
