@@ -69,12 +69,12 @@ gameRouter.get("/leaderboard/all", async (req, res) => {
 });
 
 gameRouter.post("/user/register", async (req, res) => {
-    try{
+    try {
       // https://stackoverflow.com/a/9204568
       let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       let phone_regex = /^\d{10}|^\+\d{11}/;
       let isWrong = false;
-      const wrongFields = [];
+      let wrongFields = [];
       if (!email_regex.test(req.body.email)) {
         isWrong = true;
         wrongFields = [...wrongFields, "email"];
@@ -99,9 +99,8 @@ gameRouter.post("/user/register", async (req, res) => {
         isWrong = true;
         wrongFields = [...wrongFields, "year"];
       }
-
       if (isWrong) {
-        res.status(400).json({
+        res.status(200).json({
           result: wrongFields,
         });
       } else {
