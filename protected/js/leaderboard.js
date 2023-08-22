@@ -1,6 +1,10 @@
 function loadLeaderBoard(items) {
     const table = document.getElementById("results");   
     let order = 0;
+
+    items = items.sort((a, b) => {
+        return b.score - a.score
+    });
     
     // Loop through
     for (let i = 0; i < items.length; i++) {

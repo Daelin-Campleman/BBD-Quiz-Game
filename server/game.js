@@ -281,14 +281,25 @@ export function roundOver(joinCode) {
   clearInterval(game.intervalID);
   game.currentQuestion = 1;
   game.currentRound += 1;
+
   if (game.currentRound > game.numberOfRounds) {
     endGame(joinCode);
   } else {
     const players = game.players;
+    
+    const currentScores = players.map(p => {
+      return {
+        name: p.name,
+        score: p.score,
+        calculatedScore: p.calculatedScore
+      }
+    });
+
     players.forEach(p => {
       p.ws.send(JSON.stringify({
         requestType: "ROUND OVER",
         isHost: p.isHost,
+        currentScores: p.isHost ? currentScores : [],
         joinCode: joinCode,
         gameId: game.gameId
       }));

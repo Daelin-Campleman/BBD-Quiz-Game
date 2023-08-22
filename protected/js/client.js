@@ -207,6 +207,34 @@ function handleRoundOver(msg) {
         startRound.onclick = () => {
             nextRound(msg["joinCode"]);
         };
+
+        // show playerlist with current scores
+        let playerList = document.getElementById("player-list");
+        playerList.classList.remove("hidden");
+        playerList.innerHTML = "";
+
+        let liHeader = document.createElement('li');
+        liHeader.textContent = "Current Scores";
+        playerList.appendChild(liHeader);
+
+        let currentScores = msg["currentScores"];
+        currentScores.shift();
+        currentScores = currentScores.sort((a, b) => {
+            return b.calculatedScore - a.calculatedScore
+        })
+        
+        for(let i = 0; i < currentScores.length; i++){
+            let li = document.createElement('li');
+            let badge = document.createElement('span');
+            badge.classList.add("badge");
+            badge.textContent = currentScores[i]["calculatedScore"];
+            li.appendChild(badge);
+            let name = document.createElement('span');
+            name.textContent = currentScores[i]["name"];
+            li.appendChild(name);
+            playerList.appendChild(li);
+        }
+
     } else {
         document.getElementById("question").classList.add("hidden");
         document.getElementById("answers").classList.add("hidden");

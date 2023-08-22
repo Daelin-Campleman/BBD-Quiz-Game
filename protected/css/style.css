@@ -378,6 +378,28 @@ a.btn {
     border-bottom: none;
 }
 
+#player-list li .currentScoreName {
+    text-align: left;
+}
+
+#player-list li .currentScoreScore {
+    text-align: right;
+}
+
+#player-list li .badge {
+    margin-left: 1em;
+    margin-right: 1em;
+    padding: 0.5em;
+    border-radius: 25px;
+    background-color: #380036;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0 0.1rem 1rem 0.1rem rgba(50, 50, 50, 0.25);
+}
+
 #join-code-header {
     flex: 0 1 auto;
 }
