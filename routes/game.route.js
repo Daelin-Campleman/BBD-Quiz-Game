@@ -70,15 +70,39 @@ gameRouter.get("/leaderboard/all", async (req, res) => {
 
 gameRouter.post("/user/register", async (req, res) => {
     try{
+      // https://stackoverflow.com/a/9204568
+      let email_regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      let phone_regex = /^\d{10}|^\+\d{11}/;
+      if (!email_regex.test(req.body.email)) {
+        res.status(400).json({
+          result: "email",
+        });
+      } else if (!phone_regex.test(req.body.phone)) {
+        res.status(400).json({
+          result: "phone",
+        });
+      } else if (
+        req.body.firstName.length <= 1 ||
+        req.body.surname.length <= 1
+      ) {
+        res.status(400).json({
+          result: "name",
+        });
+      } else if (req.body.degree.length <= 1 || req.body.year.length <= 1) {
+        res.status(400).json({
+          result: "degree",
+        });
+      } else {
         let response = await insertUserRequest(req.body);
         response = await response.json();
 
         const userId = response.fields.user_id;
 
         res.status(200).json({
-            result : "success",
-            id : userId
+          result: "success",
+          id: userId,
         });
+      }
     } catch(e){
         res.status(400).json({
             "result" : e
