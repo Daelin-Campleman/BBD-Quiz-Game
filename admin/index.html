@@ -22,7 +22,7 @@
     </header>
     <br /><br />
     <main>
-        <form id="detail-capture" onsubmit="registerToTakePart">
+        <form id="detail-capture" onsubmit="login(event);">
             <div class="floating-label-wrap mb">
                 <input type="password" class="floating-label-field floating-label-field--s3" id="password"
                     name="password" placeholder="" required>
@@ -30,13 +30,15 @@
             </div>
 
             <section class="btns" style="display: flex; align-items: center; justify-content: start;">
-                <button type="button" class="btn" onclick="login()" style="width: 100%;">Login</button>
+                <button type="submit" class="btn" style="width: 100%;">Login</button>
             </section>
         </form>
     </main>
 
     <script>
-        function login() {
+        function login(event){
+            event.preventDefault();
+
             let pass = document.getElementById("password").value;
 
             localStorage.setItem("admin", pass);

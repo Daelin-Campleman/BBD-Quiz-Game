@@ -292,6 +292,8 @@ function addPlayerToList(response) {
 }
 
 async function createGame() {
+    document.getElementById('join-code-header').textContent = "Loading...";
+
     let numQuestions = Number(document.getElementById("number-of-questions").value);
     let numRounds = Number(document.getElementById("number-of-rounds").value);
     let time = Number(document.getElementById("time-per-questions").value);
