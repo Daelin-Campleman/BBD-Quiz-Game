@@ -34,6 +34,9 @@
         if(!localStorage.getItem("admin")){
             // remove createBtnToRemove
             document.getElementById("createBtnToRemove").remove();
+            if(!localStorage.getItem("alreadyRegistered")){
+                window.location = "/";
+            }
         }
     </script>
 
