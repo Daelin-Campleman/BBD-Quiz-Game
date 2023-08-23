@@ -49,6 +49,21 @@ gameRouter.get("/leaderboard/all", async (req, res) => {
     })
 });
 
+gameRouter.get("/user/check", async (req, res) => {
+  let u = await getUSerByID(req.query.user_id);
+  u = await u.json();
+  if (u.records && u.records.length > 0){
+    res.status(200).json({
+      result: "success"
+    });
+  }
+  else {
+    res.status(200).json({
+      result: "failure"
+    });
+  }
+});
+
 gameRouter.post("/user/register", async (req, res) => {
     try {
       // https://stackoverflow.com/a/9204568
