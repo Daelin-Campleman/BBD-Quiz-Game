@@ -53,9 +53,16 @@ gameRouter.get("/user/check", async (req, res) => {
   let u = await getUSerByID(req.query.user_id);
   u = await u.json();
   if (u.records && u.records.length > 0){
-    res.status(200).json({
-      result: "success"
-    });
+    if (u.records[0].fields.email === req.query.email) {
+      res.status(200).json({
+        result: "success"
+      });
+    }
+    else {
+      res.status(200).json({
+        result: "failure"
+      });
+    }
   }
   else {
     res.status(200).json({
