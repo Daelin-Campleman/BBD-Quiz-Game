@@ -30,8 +30,9 @@ if(!localStorage.getItem("alreadyRegistered") || localStorage.getItem("alreadyRe
 } else {
     if (localStorage.getItem("alreadyRegistered") && localStorage.getItem("alreadyRegistered") == "true" && localStorage.getItem("id")) {
         let id = localStorage.getItem("id");
+        let email = localStorage.getItem("email");
     
-        let result = await fetch(`/game/user/check?user_id=${id}`);
+        let result = await fetch(`/game/user/check?user_id=${id}&email=${email}`);
 
         if (result.result != "success") {
             window.location = "/";
