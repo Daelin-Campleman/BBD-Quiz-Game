@@ -27,6 +27,17 @@ if(!localStorage.getItem("alreadyRegistered") || localStorage.getItem("alreadyRe
             window.location = "/";
         }
     }
+} else {
+    if (localStorage.getItem("alreadyRegistered") && localStorage.getItem("alreadyRegistered") == "true" && localStorage.getItem("id")) {
+        let id = localStorage.getItem("id");
+        let email = localStorage.getItem("email");
+    
+        let result = await fetch(`/game/user/check?user_id=${id}&email=${email}`);
+
+        if (result.result != "success") {
+            window.location = "/";
+        }
+    }
 }
 
 const wsURL = window.location.host.includes("localhost") ? `ws://${window.location.host}/` : `wss://${window.location.host}/`;

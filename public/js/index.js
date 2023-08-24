@@ -4,12 +4,18 @@ async function fetchName() {
     return data.user.name;
 }
 
-if (window.location.host.includes("-qa")) {
-    console.log("This is QA environment");
-}
+if (localStorage.getItem("alreadyRegistered") && localStorage.getItem("alreadyRegistered") == "true" && localStorage.getItem("id")) {
+    let id = localStorage.getItem("id");
+    let email = localStorage.getItem("email");
 
-if (localStorage.getItem("alreadyRegistered") && localStorage.getItem("alreadyRegistered") == "true") {
-    window.location = "/home";
+    fetch(`/game/user/check?user_id=${id}&email=${email}`)
+    .then((response) => {
+        return response.json();
+    }).then((result) => {
+        if (result.result == "success") {
+            window.location = "/home";
+        }
+    })
 }
 
 function createDegreeDropdown(){
